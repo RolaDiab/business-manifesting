@@ -116,7 +116,10 @@ button[disabled] { opacity: 0.6; cursor: wait; }
 .hero-dark .error { color: #FFB4A6; }
 .hero-dark .done-line { color: #fff; }
 .hero-dark .done .eyebrow { color: #F2C75C; }
-.hero-dark .shine { background: linear-gradient(90deg, #FFD86B 0%, #FF9F6E 35%, #FF7EB3 68%, #8EE3EF 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .hero-dark .radiant { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF4C9 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 18px rgba(242,199,92,0.45)); animation: radiant 6s ease-in-out infinite; }
 @keyframes radiant { 0%, 100% { background-position: 100% 0; } 50% { background-position: 0 0; } }
-@media (prefers-reduced-motion: reduce) { .hero-dark .radiant { animation: none; background-position: 50% 0; } }
+.hero-dark .shine { background: linear-gradient(90deg, #FFC531 0%, #FF7A45 25%, #FF4F9A 50%, #3FD0E8 75%, #FFC531 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 14px rgba(255,122,69,0.35)); animation: flow 8s linear infinite; }
+@keyframes flow { from { background-position: 0 0; } to { background-position: -200% 0; } }
+.hero-dark button { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; animation: radiant 6s ease-in-out infinite; box-shadow: 0 6px 24px rgba(242,199,92,0.35); }
+.hero-dark button:hover { filter: brightness(1.06); }
+@media (prefers-reduced-motion: reduce) { .hero-dark .radiant, .hero-dark .shine, .hero-dark button { animation: none; } }
