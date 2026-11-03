@@ -19,7 +19,7 @@
       body: JSON.stringify({
         templateName: "application-submission",
         templateData: {
-          name: v.first_name, email: v.email, phone: "", role: "Not given",
+          name: v.first_name + " " + v.last_name, email: v.email, phone: "", role: "Not given",
           message: list.toUpperCase() + " WAITLIST signup from businessmanifesting.com" + location.pathname + ". Source: " + source + "."
         }
       }),
@@ -30,7 +30,7 @@
       jobs.push(fetch(CONFIG.GHL_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ first_name: v.first_name, email: v.email, list: list, utm_source: source, tags: list + "-waitlist" }),
+        body: JSON.stringify({ first_name: v.first_name, last_name: v.last_name, email: v.email, list: list, utm_source: source, tags: list + "-waitlist" }),
         keepalive: true
       }).catch(function () {}));
     }
@@ -44,9 +44,10 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var v = { first_name: form.first_name.value.trim(), email: form.email.value.trim() };
+      var v = { first_name: form.first_name.value.trim(), last_name: form.last_name.value.trim(), email: form.email.value.trim() };
       errorEl.textContent = "";
       if (!v.first_name) { errorEl.textContent = "Please add your first name."; return; }
+      if (!v.last_name) { errorEl.textContent = "Please add your last name."; return; }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) { errorEl.textContent = "Please add a valid email."; return; }
       if (!form.consent.checked) { errorEl.textContent = "Please tick the box so we can send you updates."; return; }
 

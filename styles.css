@@ -34,7 +34,7 @@ a { color: inherit; }
 
 /* Forms */
 #waitlist, .signup form { max-width: 640px; margin: 0 auto; }
-.line { display: flex; gap: 10px; }
+.line { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .line input { flex: 1; min-width: 0; height: 52px; padding: 0 18px; font: 400 17px var(--font); color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 12px; }
 .line input::placeholder { color: #86868B; }
 .line input:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 4px rgba(15,37,68,0.12); }
@@ -89,7 +89,8 @@ button[disabled] { opacity: 0.6; cursor: wait; }
 @media (max-width: 760px) {
   .hero { padding: 64px 16px 64px; }
   .line { flex-direction: column; }
-  .line input { flex: none; width: 100%; }
+  .line { grid-template-columns: 1fr; }
+  .line input { width: 100%; }
   button { width: 100%; }
   .statement { padding: 80px 16px; }
   .pillars { grid-template-columns: 1fr; gap: 40px; padding: 80px 16px; }
