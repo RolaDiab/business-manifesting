@@ -1,11 +1,10 @@
 // Waitlist form. Each signup: (1) lead alert email to Rola via the convictioncode.com email
-// system (Lovable Cloud), (2) a "summit_waitlist" row in the quiz_events counter table,
-// (3) GHL, once GHL_WEBHOOK_URL is set (needs a GHL workflow with an Inbound Webhook trigger).
+// system (Lovable Cloud), (2) GHL, once GHL_WEBHOOK_URL is set (needs a GHL workflow with an
+// Inbound Webhook trigger).
 (function () {
   var CONFIG = {
     GHL_WEBHOOK_URL: "",
     EMAIL_FUNCTION_URL: "https://zyonpiskcpoiwhkgxdjp.supabase.co/functions/v1/send-transactional-email",
-    EVENTS_URL: "https://zyonpiskcpoiwhkgxdjp.supabase.co/rest/v1/quiz_events",
     PUBLIC_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp5b25waXNrY3BvaXdoa2d4ZGpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2NTM0MDgsImV4cCI6MjA4NDIyOTQwOH0.2AdGgTflahS0Y_jO66BmH4b8n5PwDp-0wtQPtFPh_BI"
   };
 
@@ -33,13 +32,6 @@
       keepalive: true
     }).catch(function () {}));
 
-    jobs.push(fetch(CONFIG.EVENTS_URL, {
-      method: "POST",
-      headers: Object.assign(supabaseHeaders(), { "Prefer": "return=minimal" }),
-      body: JSON.stringify({ event: "summit_waitlist", source: source.slice(0, 100) }),
-      keepalive: true
-    }).catch(function () {}));
-
     if (CONFIG.GHL_WEBHOOK_URL) {
       jobs.push(fetch(CONFIG.GHL_WEBHOOK_URL, {
         method: "POST",
@@ -56,7 +48,7 @@
     var v = {
       first_name: form.first_name.value.trim(),
       email: form.email.value.trim(),
-      role: form.role.value
+      role: ""
     };
     errorEl.textContent = "";
     if (!v.first_name) { errorEl.textContent = "Please add your first name."; return; }

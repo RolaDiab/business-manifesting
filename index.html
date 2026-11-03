@@ -9,89 +9,64 @@
   <meta property="og:description" content="Manifesting is the blueprint. Business is the build. Online, 2027. Join the waitlist.">
   <meta property="og:url" content="https://businessmanifesting.com/">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#0F2544">
+  <meta name="theme-color" content="#FAF7F0">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
   <header class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">The Business Manifesting Summit · Online · 2027</p>
-        <h1>Manifesting is the blueprint. <span class="gold">Business is the build.</span></h1>
-        <p class="lede">A virtual summit for founders and leaders who want growth that feels predictable, not lucky. Hosted by Rola Diab.</p>
-        <ul class="perks">
-          <li>First access before seats open to the public</li>
-          <li>The speaker lineup before anyone else</li>
-          <li>Dates and details sent to the waitlist first</li>
-        </ul>
-      </div>
+    <p class="eyebrow">The Business Manifesting Summit</p>
+    <h1>Manifesting is the blueprint.<br>Business is the build.</h1>
+    <div class="rule"></div>
+    <p class="lede">A virtual summit for founders and leaders who want growth that feels predictable, not lucky. Hosted by Rola Diab.</p>
+    <p class="meta">Online &nbsp;·&nbsp; 2027 &nbsp;·&nbsp; Details to the waitlist first</p>
 
-      <div class="card" id="join">
-        <form id="waitlist" novalidate>
-          <h2>Join the waitlist</h2>
-          <label>First name<input name="first_name" type="text" autocomplete="given-name" required></label>
-          <label>Email<input name="email" type="email" autocomplete="email" required></label>
-          <label>I am a
-            <select name="role">
-              <option value="">Choose one (optional)</option>
-              <option>Founder or CEO</option>
-              <option>Executive or leader</option>
-              <option>Coach, consultant or creator</option>
-              <option>Other</option>
-            </select>
-          </label>
-          <label class="consent"><input name="consent" type="checkbox" required> Send me summit updates and occasional insights from Rola. Unsubscribe anytime. <a href="https://convictioncode.com/privacy" target="_blank" rel="noopener">Privacy policy</a>.</label>
-          <p class="error" id="error" role="alert"></p>
-          <button type="submit">Save my spot</button>
-        </form>
-        <div class="done" id="done" hidden>
-          <p class="eyebrow dark">You're on the list</p>
-          <h2>Welcome in, <span id="done-name"></span>.</h2>
-          <p>You'll hear about dates, speakers and seats before anyone else. Keep an eye on your inbox.</p>
-        </div>
+    <form id="waitlist" novalidate>
+      <div class="line">
+        <input name="first_name" type="text" placeholder="First name" autocomplete="given-name" aria-label="First name" required>
+        <input name="email" type="email" placeholder="Email" autocomplete="email" aria-label="Email" required>
+        <button type="submit">Join the waitlist</button>
       </div>
+      <label class="consent"><input name="consent" type="checkbox" required> Send me summit updates and occasional insights from Rola. Unsubscribe anytime. <a href="https://convictioncode.com/privacy" target="_blank" rel="noopener">Privacy</a></label>
+      <p class="error" id="error" role="alert"></p>
+    </form>
+    <div class="done" id="done" hidden>
+      <p class="eyebrow">You're on the list</p>
+      <p class="done-line">Welcome in, <span id="done-name"></span>. Dates, speakers and seats come to you first.</p>
     </div>
   </header>
 
-  <section class="band">
-    <div class="wrap">
-      <p class="eyebrow dark">What it is</p>
-      <h2 class="section-title">One summit. Two halves of success.</h2>
-      <div class="cols">
-        <div class="col">
-          <h3>The inner game</h3>
-          <p>Belief, identity and conviction. The invisible engine that decides how far your strategy can go.</p>
-        </div>
-        <div class="col">
-          <h3>The outer game</h3>
-          <p>Offers, sales and growth from founders and operators who have built it, not just talked about it.</p>
-        </div>
-        <div class="col">
-          <h3>The bridge</h3>
-          <p>Tools you use the Monday after. No vision boards left in a drawer.</p>
-        </div>
-      </div>
+  <section class="pillars">
+    <div class="pillar">
+      <p class="num">I</p>
+      <h2>The inner game</h2>
+      <p>Belief, identity and conviction. The invisible engine that decides how far your strategy can go.</p>
+    </div>
+    <div class="pillar">
+      <p class="num">II</p>
+      <h2>The outer game</h2>
+      <p>Offers, sales and growth from founders and operators who have built it, not just talked about it.</p>
+    </div>
+    <div class="pillar">
+      <p class="num">III</p>
+      <h2>The bridge</h2>
+      <p>Tools you use the Monday after. No vision boards left in a drawer.</p>
     </div>
   </section>
 
   <section class="host">
-    <div class="wrap host-grid">
-      <img src="rola.jpg" alt="Rola Diab" width="320" height="320">
-      <div>
-        <p class="eyebrow">Your host</p>
-        <h2>Rola Diab</h2>
-        <p>Business Manifesting Expert and advisor to founders and leaders. Named to Fast Company's Most Creative People in Business 2026. Her work has reached teams at KPMG, Bloomberg and the UAE Government.</p>
-        <a class="btn" href="#join">Join the waitlist</a>
-      </div>
-    </div>
+    <img src="rola.jpg" alt="Rola Diab" width="280" height="350">
+    <p class="eyebrow">Your host</p>
+    <h2>Rola Diab</h2>
+    <p>Business Manifesting Expert and advisor to founders and leaders. Named to Fast Company's Most Creative People in Business 2026. Her work has reached teams at KPMG, Bloomberg and the UAE Government.</p>
+    <a class="link" href="#waitlist">Join the waitlist</a>
   </section>
 
-  <footer class="foot">The Business Manifesting Summit by Rola Diab © 2026 · <a href="https://convictioncode.com/privacy" target="_blank" rel="noopener">Privacy</a></footer>
+  <footer class="foot">The Business Manifesting Summit by Rola Diab © 2026 &nbsp;·&nbsp; <a href="https://convictioncode.com/privacy" target="_blank" rel="noopener">Privacy</a></footer>
 
-  <script src="site.js?v=1"></script>
+  <script src="site.js?v=3"></script>
 </body>
 </html>
