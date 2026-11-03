@@ -99,3 +99,20 @@ button[disabled] { opacity: 0.6; cursor: wait; }
   .nav-inner { padding: 0 16px; }
   .nav-links { gap: 16px; }
 }
+
+/* Navy hero: gold accent word, white text, gold button */
+.hero-dark { max-width: none; background: var(--navy); color: #fff; padding-left: 22px; padding-right: 22px; }
+.hero-dark > * { max-width: 980px; margin-left: auto; margin-right: auto; }
+.hero-dark h1 { color: #fff; }
+.hero-dark .gold { color: #D6B368; }
+.hero-dark .eyebrow { color: #D6B368; }
+.hero-dark .lede { color: #fff; max-width: 640px; }
+.hero-dark .meta, .hero-dark .consent { color: #fff; }
+.hero-dark .consent a { color: #D6B368; }
+.hero-dark .line input { border-color: transparent; }
+.hero-dark .line input:focus { border-color: #D6B368; box-shadow: 0 0 0 4px rgba(214,179,104,0.3); }
+.hero-dark button { background: #D6B368; color: var(--navy); font-weight: 600; }
+.hero-dark button:hover { background: #E2C383; }
+.hero-dark .error { color: #FFB4A6; }
+.hero-dark .done-line { color: #fff; }
+.hero-dark .done .eyebrow { color: #D6B368; }
