@@ -37,10 +37,28 @@
     return Promise.race([Promise.all(jobs), new Promise(function (r) { setTimeout(r, 4000); })]);
   }
 
+  // Bot filter. Flagged signups still see the success screen, but nothing is sent.
+  var loadedAt = Date.now();
+  function looksLikeBot(v, form) {
+    if (form.website && form.website.value) return true;                 // hidden trap field filled
+    if (Date.now() - loadedAt < 3000) return true;                        // submitted inhumanly fast
+    var names = (v.first_name + " " + v.last_name).split(/\s+/);
+    if (names.some(function (w) { return (w.slice(1).match(/[A-Z]/g) || []).length >= 2; })) return true; // "OaVUampAcyq"
+    var parts = v.email.toLowerCase().split("@");
+    if (/^(gmail|googlemail)\.com$/.test(parts[1]) && (parts[0].match(/\./g) || []).length >= 3) return true; // "si.z.i.q.eyu76@gmail.com"
+    return false;
+  }
+
   Array.prototype.forEach.call(document.querySelectorAll(".signup"), function (block) {
     var form = block.querySelector("form");
     var errorEl = block.querySelector(".error");
     var list = block.getAttribute("data-list");
+
+    var trap = document.createElement("input");
+    trap.type = "text"; trap.name = "website"; trap.tabIndex = -1; trap.autocomplete = "off";
+    trap.setAttribute("aria-hidden", "true");
+    trap.style.cssText = "position:absolute;left:-9999px;width:1px;height:1px;opacity:0;";
+    form.appendChild(trap);
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -54,7 +72,7 @@
       var btn = form.querySelector("button");
       btn.disabled = true;
       btn.textContent = "Saving your spot...";
-      send(v, list).then(function () {
+      (looksLikeBot(v, form) ? Promise.resolve() : send(v, list)).then(function () {
         block.querySelector(".done-name").textContent = v.first_name;
         form.hidden = true;
         block.querySelector(".done").hidden = false;
