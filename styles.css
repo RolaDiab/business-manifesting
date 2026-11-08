@@ -235,6 +235,28 @@ html { scroll-padding-top: 64px; }
   .home-hero.has-photo .cta-row { justify-content: center; }
   .dark-page .home-hero .eyebrow { align-self: center; }
 }
+/* Split hero: copy left, photo right (never overlapping). */
+.home-hero.split { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; padding: 0; text-align: left; background: #0A1830; min-height: calc(100svh - 52px); }
+.home-hero.split > * { max-width: none; margin: 0; }
+.split-copy { align-self: center; padding: 72px 48px 72px max(40px, calc((100vw - 1200px) / 2)); }
+.split-copy > * { margin-left: 0; margin-right: 0; }
+.home-hero.split .eyebrow { align-self: auto; }
+.home-hero.split h1 { font-size: clamp(44px, 5.4vw, 88px); max-width: 640px; }
+.home-hero.split .lede { margin: 28px 0 10px; max-width: 560px; }
+.home-hero.split .meta { max-width: 560px; }
+.home-hero.split .cta-row { justify-content: flex-start; }
+.split-photo { position: relative; overflow: hidden; }
+.split-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 66% 30%; display: block; }
+.split-photo::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 18%; background: linear-gradient(90deg, #0A1830, rgba(10,24,48,0)); z-index: 1; }
+@media (max-width: 900px) {
+  .home-hero.split { grid-template-columns: 1fr; min-height: 0; text-align: center; }
+  .split-photo { order: -1; height: 56vw; min-height: 300px; max-height: 460px; }
+  .split-photo img { object-position: 70% 25%; }
+  .split-photo::before { inset: auto 0 0 0; width: auto; height: 30%; background: linear-gradient(0deg, #0A1830, rgba(10,24,48,0)); }
+  .split-copy { padding: 32px 20px 64px; }
+  .home-hero.split h1, .home-hero.split .lede, .home-hero.split .meta { margin-left: auto; margin-right: auto; }
+  .home-hero.split .cta-row { justify-content: center; }
+}
 .home-hero h1 { font-size: clamp(52px, 10vw, 136px); font-weight: 700; line-height: 0.96; letter-spacing: -0.04em; max-width: 1200px; }
 .home-hero .lede { font-size: clamp(21px, 2.4vw, 28px); font-weight: 500; max-width: 760px; margin-top: 32px; }
 .home-hero .eyebrow { margin-bottom: 22px; }
