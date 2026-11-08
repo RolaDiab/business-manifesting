@@ -526,3 +526,41 @@ body.dark-page, .dark-page .home-hero.full, .dark-page .proof-strip, .dark-page 
 :root { --page-blue: #285B94; --page-blue-rgb: 40,91,148; }
 .dark-page .hero-dark:not(.home-hero), .dark-page .closing { background: radial-gradient(110% 80% at 50% 0%, #4A82C2 0%, var(--page-blue) 70%); }
 .dark-page .home-hero.full .split-photo img { filter: brightness(1.2); }
+
+/* Rolling logo strip at the fold, like roladiab.com (2026-11-08). */
+.trust-bar { background: var(--page-blue); padding: 44px 0 48px; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); text-align: center; overflow: hidden; }
+.trust-label { margin: 0 0 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #FFC21A; }
+.trust-label:not(:first-child) { margin-top: 34px; }
+.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%); }
+.marquee-track { display: flex; width: max-content; }
+.marquee-track.left { animation: bm-marquee-left 40s linear infinite; }
+.marquee-track.right { animation: bm-marquee-right 45s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-set { display: flex; align-items: center; flex-shrink: 0; }
+.marquee-set img { height: 44px; width: auto; max-width: 150px; object-fit: contain; margin: 0 34px; filter: brightness(0) invert(1); opacity: 0.85; }
+.marquee-set img.wide { max-width: 170px; height: 34px; }
+.marquee-set span { margin: 0 34px; white-space: nowrap; font-size: 20px; font-weight: 600; color: rgba(255,255,255,0.85); }
+@keyframes bm-marquee-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes bm-marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track.left, .marquee-track.right { animation: none; } }
+@media (max-width: 560px) {
+  .trust-bar { padding: 32px 0 36px; }
+  .marquee-set img { height: 34px; margin: 0 22px; }
+  .marquee-set span { font-size: 17px; margin: 0 22px; }
+}
+.marquee-set img { filter: grayscale(1) invert(1) contrast(1.6) brightness(1.1); mix-blend-mode: screen; opacity: 0.9; }
+
+/* Hero fixes (2026-11-08): keep Rola's head clear, stop the last letter being clipped, brighter colors. */
+.dark-page .home-hero.full .split-photo img { object-position: 75% 12%; }
+.dark-page .home-hero.full .split-photo::after { background: linear-gradient(180deg, rgba(var(--page-blue-rgb),0.45) 0%, rgba(var(--page-blue-rgb),0) 7%), linear-gradient(0deg, var(--page-blue) 0%, rgba(var(--page-blue-rgb),0) 26%); }
+.home-hero .radiant, .home-hero .shine { padding-right: 0.08em; margin-right: -0.08em; padding-bottom: 0.06em; }
+.home-hero .radiant { background: linear-gradient(180deg, #FFE066 0%, #FFCF2E 55%, #FFC21A 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.home-hero .shine { filter: saturate(1.6) brightness(1.12); }
+/* Logo strip: give the blend a blue backdrop inside the mask so no dark boxes show. */
+.marquee-track { background: var(--page-blue); }
+
+/* Base blue = roladiab.com hero blue (Rola, 2026-11-08). One level across the site. */
+:root { --page-blue: #16406C; --page-blue-rgb: 22,64,108; }
+.dark-page .hero-dark:not(.home-hero), .dark-page .closing { background: radial-gradient(110% 80% at 50% 0%, #2A5F96 0%, var(--page-blue) 70%); }
+.dark-page .home-hero.full .split-photo img { filter: none; }
+.dark-page .home-hero.full .split-photo::before { background: linear-gradient(90deg, rgba(var(--page-blue-rgb),0.94) 0%, rgba(var(--page-blue-rgb),0.85) 30%, rgba(var(--page-blue-rgb),0.4) 55%, rgba(var(--page-blue-rgb),0) 78%); }
