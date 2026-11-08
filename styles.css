@@ -548,7 +548,8 @@ body.dark-page, .dark-page .home-hero.full, .dark-page .proof-strip, .dark-page 
   .marquee-set img { height: 34px; margin: 0 22px; }
   .marquee-set span { font-size: 17px; margin: 0 22px; }
 }
-.marquee-set img { filter: grayscale(1) invert(1) contrast(1.6) brightness(1.1); mix-blend-mode: screen; opacity: 0.9; }
+/* Logo files are white on transparent, so no color flipping or blending is needed (blending showed black boxes in iPhone Safari). */
+.marquee-set img { filter: none; mix-blend-mode: normal; opacity: 0.9; }
 
 /* Hero fixes (2026-11-08): keep Rola's head clear, stop the last letter being clipped, brighter colors. */
 .dark-page .home-hero.full .split-photo img { object-position: 75% 12%; }
