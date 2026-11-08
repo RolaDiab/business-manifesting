@@ -482,3 +482,23 @@ h1, h2, .proof-strip p { text-wrap: balance; }
 .home-hero .radiant { background: linear-gradient(100deg, #F0A818 0%, #FFC933 28%, #FFE27A 50%, #FFC933 72%, #F0A818 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: saturate(1.2) drop-shadow(0 0 16px rgba(255,190,40,0.45)); }
 .home-hero h1 { text-shadow: none; }
 .home-hero .radiant { background: linear-gradient(180deg, #FFD54A 0%, #FFC21A 55%, #F2A900 100%); background-size: 100% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: none; filter: none; }
+
+/* Testimonials (home) */
+.testimonials { max-width: 1024px; margin: 0 auto; padding: 96px 22px; text-align: center; }
+.testimonials h2 { font-size: clamp(36px, 5vw, 64px); margin-bottom: 48px; }
+.t-featured { margin: 0 auto 40px; max-width: 860px; text-align: left; border-left: 3px solid #FFC21A; padding: 4px 0 4px 28px; }
+.t-featured blockquote { margin: 0; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.45; font-weight: 500; }
+.t-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; text-align: left; }
+.t-card { margin: 0; border-radius: 22px; padding: 28px; display: flex; flex-direction: column; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); }
+.t-card blockquote { margin: 0 0 20px; flex: 1; font-size: 16px; line-height: 1.6; }
+.t-featured figcaption, .t-card figcaption { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 18px; }
+.t-card figcaption strong { display: block; }
+.t-featured figcaption strong, .t-card figcaption strong { color: #FFC21A; font-weight: 700; }
+.dark-page .t-featured blockquote, .dark-page .t-card blockquote { color: #fff; }
+.dark-page .t-card blockquote { color: rgba(255,255,255,0.88); }
+.t-note { margin: 24px 0 0; font-size: 13px; color: rgba(255,255,255,0.55); }
+@media (max-width: 760px) {
+  .testimonials { padding: 72px 16px; }
+  .t-grid { grid-template-columns: 1fr; }
+  .t-featured { padding-left: 18px; }
+}
