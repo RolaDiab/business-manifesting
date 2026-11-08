@@ -502,3 +502,23 @@ h1, h2, .proof-strip p { text-wrap: balance; }
   .t-grid { grid-template-columns: 1fr; }
   .t-featured { padding-left: 18px; }
 }
+
+/* One lighter blue everywhere, sampled from the roladiab.com hero haze (2026-11-08). */
+:root { --page-blue: #1F4C80; --page-blue-rgb: 31,76,128; }
+body.dark-page, .dark-page .home-hero.full, .dark-page .proof-strip, .dark-page .hook, .dark-page .chain, .dark-page .testimonials,
+.dark-page .home-programs, .dark-page #platform, .dark-page .cert-band, .dark-page .pillars, .dark-page .host, .dark-page .feature,
+.dark-page .feature-soft, .dark-page .formats-band, .dark-page .offers, .dark-page .statement, .dark-page .start, .dark-page .foot { background: var(--page-blue); }
+.dark-page .nav { background: rgba(var(--page-blue-rgb),0.92); }
+.dark-page .hero-dark:not(.home-hero), .dark-page .closing { background: radial-gradient(110% 80% at 50% 0%, #3A70B0 0%, var(--page-blue) 70%); }
+.dark-page .chain li, .dark-page .program-card, .dark-page .format-card, .dark-page .offer, .dark-page .apply-form .opt, .dark-page .t-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); }
+.dark-page .program-flag { background: rgba(255,255,255,0.12); border-color: rgba(242,199,92,0.6); }
+.dark-page .home-hero.full .split-photo::before { background: linear-gradient(90deg, rgba(var(--page-blue-rgb),0.9) 0%, rgba(var(--page-blue-rgb),0.75) 30%, rgba(var(--page-blue-rgb),0.3) 55%, rgba(var(--page-blue-rgb),0) 78%); }
+.dark-page .home-hero.full .split-photo::after { background: linear-gradient(180deg, rgba(var(--page-blue-rgb),0.9) 0%, rgba(var(--page-blue-rgb),0) 20%), linear-gradient(0deg, var(--page-blue) 0%, rgba(var(--page-blue-rgb),0) 28%); }
+.dark-page .home-hero.full .split-photo img { filter: brightness(1.12); }
+@media (max-width: 900px), (max-aspect-ratio: 1/1) {
+  .dark-page .home-hero.full .split-photo::before { display: none; }
+  .dark-page .home-hero.full .split-photo::after { background: linear-gradient(0deg, var(--page-blue) 0%, rgba(var(--page-blue-rgb),0) 45%); }
+}
+@media (max-width: 560px) {
+  .dark-page .home-hero.full .split-photo::after { background: linear-gradient(0deg, rgba(var(--page-blue-rgb),0.5) 0%, rgba(var(--page-blue-rgb),0) 30%); }
+}
