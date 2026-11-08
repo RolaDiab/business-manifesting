@@ -623,3 +623,14 @@ h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spac
 /* Logos are now white-on-transparent files: no filters or blending needed (fixes black boxes on iPhone). */
 .marquee-set img { filter: none; mix-blend-mode: normal; opacity: 0.9; }
 .marquee-track { background: transparent; }
+
+/* Logo strip in full color on a white band, like roladiab.com (2026-11-08). */
+.trust-bar { background: #FFFFFF; border-color: rgba(15,37,68,0.08); }
+.trust-label { color: #0F2544; }
+.marquee-set img { filter: none; mix-blend-mode: normal; opacity: 1; height: 52px; max-width: 160px; }
+.marquee-set img.wide { height: 36px; max-width: 180px; }
+.marquee-set span { color: #3D4C63; }
+.marquee-track { background: transparent; }
+@media (max-width: 560px) { .marquee-set img { height: 40px; } }
+.dark-page .trust-label { color: #0F2544; }
+.dark-page .marquee-set span { color: #3D4C63; }
