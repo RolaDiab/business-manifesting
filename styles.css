@@ -639,3 +639,7 @@ h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spac
 .dark-page .eyebrow { font-size: 16px; letter-spacing: 0.16em; margin-bottom: 18px; }
 .dark-page .trust-label { font-size: 14px; }
 @media (max-width: 560px) { .dark-page .eyebrow { font-size: 14px; } }
+
+/* Questionnaire: "Other" text box */
+.apply-form .other-input { display: block; width: 100%; margin-top: 10px; padding: 14px 16px; font: 400 17px var(--font); color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+.apply-form .other-input[hidden] { display: none; }

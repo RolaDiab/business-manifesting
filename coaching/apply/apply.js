@@ -49,8 +49,8 @@
     root.innerHTML =
       '<header class="hero hero-short hero-dark">' +
         '<p class="eyebrow">Apply for coaching</p>' +
-        '<h1>Let\'s clear the path to <span class="gold">your next level.</span></h1>' +
-        '<p class="lede">1:1 or group coaching with Rola. A few questions first, and if it\'s a fit, you\'ll book a 45-minute Performance Strategy Session right away.</p>' +
+        '<h1>Let\'s clear the path to <span class="gold">your biggest wins.</span></h1>' +
+        '<p class="lede">1:1 or group coaching with Rola.<br>A few questions first, and if it\'s a fit, you\'ll book a 45-minute Performance Strategy Session right away.</p>' +
       '</header>' +
       '<section class="apply-wrap"><form id="app-form" class="apply-form" novalidate>' +
         '<fieldset><legend>Which coaching are you interested in?</legend>' + radios("type", TYPE, v.type) + '</fieldset>' +
@@ -63,7 +63,9 @@
           '<label>Phone or WhatsApp<input name="phone" type="tel" autocomplete="tel" maxlength="40" value="' + esc(v.phone || "") + '"></label>' +
         '</div>' +
         '<label>Your role and company<input name="company" maxlength="150" placeholder="For example: CEO, Acme Group" value="' + esc(v.company || "") + '"></label>' +
-        '<fieldset><legend>Which best describes your role?</legend>' + radios("role", ROLE, v.role) + '</fieldset>' +
+        '<fieldset><legend>Which best describes your role?</legend>' + radios("role", ROLE, v.role) +
+          '<input class="other-input" name="role_other" maxlength="100" placeholder="Tell us your role" aria-label="Your role"' + (v.role === "Other" ? "" : " hidden") + ' value="' + esc(v.role_other || "") + '">' +
+        '</fieldset>' +
         '<fieldset><legend>What\'s going on for you right now? Share your top 3 challenges, with as much detail as you can.</legend>' +
           [1, 2, 3].map(function (n) { return '<textarea name="c' + n + '" rows="3" maxlength="1000" aria-label="Challenge ' + n + '" placeholder="' + n + '.' + (n === 1 ? ' For example: I second-guess big decisions, so I delay them for weeks and my team waits on me.' : '') + '">' + esc((v.challenges || [])[n - 1] || "") + '</textarea>'; }).join("") +
         '</fieldset>' +
@@ -83,7 +85,7 @@
       "COACHING APPLICATION from businessmanifesting.com\n" +
       "QUALIFIED: " + (qualified ? "YES, shown the booking calendar" : "NO, not shown the calendar") + "\n" +
       "Interested in: " + v.type + "\n\n" +
-      "Role: " + v.role + "\n" +
+      "Role: " + (v.role === "Other" ? "Other: " + v.role_other : v.role) + "\n" +
       "Wants to start: " + v.start + "\n" +
       "Income or revenue: " + v.income + "\n" +
       "Ready to invest: " + v.invest + "\n\n" +
@@ -144,6 +146,7 @@
       company: f.company.value.trim().slice(0, 150),
       type: pick("type"),
       role: pick("role"),
+      role_other: (f.role_other ? f.role_other.value : "").trim().slice(0, 100),
       goal: f.goal.value.trim().slice(0, 1000),
       challenges: [f.c1.value, f.c2.value, f.c3.value].map(function (c) { return c.trim().slice(0, 1000); }),
       energy: pick("energy"),
@@ -158,6 +161,7 @@
       v.phone.replace(/\D/g, "").length < 7 ? "Please enter a phone or WhatsApp number." :
       !v.company ? "Please share your role and company." :
       !v.role ? "Please choose your role." :
+      v.role === "Other" && !v.role_other ? "Please tell us your role." :
       v.challenges.filter(Boolean).length < 3 ? "Please share your top 3 challenges." :
       !v.goal ? "Please tell us what you want to be true in 90 days." :
       !v.energy ? "Please answer the energy clearing question." :
@@ -181,6 +185,15 @@
     Promise.race([sendApplication(v, qualified), new Promise(function (r) { setTimeout(r, 4000); })]).then(function () {
       if (qualified) renderQualified(v); else renderNotYet(v);
     });
+  });
+
+  // Show the "Other" role box only when Other is picked.
+  root.addEventListener("change", function (e) {
+    if (e.target.name !== "role") return;
+    var box = root.querySelector('input[name="role_other"]');
+    if (!box) return;
+    box.hidden = e.target.value !== "Other";
+    if (!box.hidden) box.focus();
   });
 
   track("apply_view");
