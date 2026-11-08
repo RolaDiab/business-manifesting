@@ -564,3 +564,17 @@ body.dark-page, .dark-page .home-hero.full, .dark-page .proof-strip, .dark-page 
 .dark-page .hero-dark:not(.home-hero), .dark-page .closing { background: radial-gradient(110% 80% at 50% 0%, #2A5F96 0%, var(--page-blue) 70%); }
 .dark-page .home-hero.full .split-photo img { filter: none; }
 .dark-page .home-hero.full .split-photo::before { background: linear-gradient(90deg, rgba(var(--page-blue-rgb),0.94) 0%, rgba(var(--page-blue-rgb),0.85) 30%, rgba(var(--page-blue-rgb),0.4) 55%, rgba(var(--page-blue-rgb),0) 78%); }
+
+/* Darker roladiab.com version (Rola, 2026-11-08): deep navy shading on the left, haze around the photo,
+   menu bar and hero top are the same #16406C with no border so they blend. Site base sits between. */
+:root { --page-blue: #12335C; --page-blue-rgb: 18,51,92; }
+.dark-page .nav { background: #16406C; border-bottom: 0; backdrop-filter: none; -webkit-backdrop-filter: none; }
+.dark-page .home-hero.full { background: #0D2748; }
+.dark-page .home-hero.full .split-photo::before { background: linear-gradient(90deg, rgba(13,39,72,0.94) 0%, rgba(13,39,72,0.88) 30%, rgba(13,39,72,0.45) 55%, rgba(13,39,72,0) 78%); }
+.dark-page .home-hero.full .split-photo::after { background: linear-gradient(180deg, #16406C 0%, rgba(22,64,108,0.6) 7%, rgba(22,64,108,0) 22%), linear-gradient(0deg, var(--page-blue) 0%, rgba(var(--page-blue-rgb),0) 24%); }
+.dark-page .hero-dark:not(.home-hero), .dark-page .closing { background: radial-gradient(110% 80% at 50% 0%, #2A5F96 0%, #16406C 40%, var(--page-blue) 80%); }
+.dark-page .hero-dark:not(.home-hero) { background: linear-gradient(180deg, #16406C 0%, rgba(22,64,108,0) 30%), radial-gradient(110% 80% at 50% 0%, #2A5F96 0%, #16406C 40%, var(--page-blue) 80%); }
+@media (max-width: 900px), (max-aspect-ratio: 1/1) {
+  .dark-page .home-hero.full { background: var(--page-blue); }
+  .dark-page .home-hero.full .split-photo::after { background: linear-gradient(180deg, #16406C 0%, rgba(22,64,108,0) 25%), linear-gradient(0deg, var(--page-blue) 0%, rgba(var(--page-blue-rgb),0) 45%); }
+}
