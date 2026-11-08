@@ -578,3 +578,10 @@ body.dark-page, .dark-page .home-hero.full, .dark-page .proof-strip, .dark-page 
   .dark-page .home-hero.full { background: var(--page-blue); }
   .dark-page .home-hero.full .split-photo::after { background: linear-gradient(180deg, #16406C 0%, rgba(22,64,108,0) 25%), linear-gradient(0deg, var(--page-blue) 0%, rgba(var(--page-blue-rgb),0) 45%); }
 }
+
+/* Programs: two cards (Coaching, Teams). */
+.program-cards.two-up { grid-template-columns: 1.2fr 1fr; max-width: 900px; margin-left: auto; margin-right: auto; }
+.program-list { list-style: none; padding: 0; margin: 0 0 26px; display: grid; gap: 10px; width: 100%; }
+.program-list li { padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); font-size: 16px; }
+.program-list strong { color: #FFC21A; }
+@media (max-width: 900px) { .program-cards.two-up { grid-template-columns: 1fr; } }

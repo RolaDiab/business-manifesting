@@ -25,6 +25,7 @@
     } catch (e) {}
   }
 
+  var TYPE = ["1:1 private coaching", "Group coaching", "Not sure yet, help me choose"];
   var ROLE = ["Founder or CEO", "Business owner or entrepreneur", "C-suite executive", "VP or director", "Senior manager", "Consultant or advisor", "Other"];
   var START = ["Right away", "In the next 30 days", "In 1 to 3 months", "I'm just exploring"];
   var ENERGY = ["Very open. I've done energy work before", "Open and curious", "Not sure yet", "I prefer only the science-backed performance work"];
@@ -49,9 +50,10 @@
       '<header class="hero hero-short hero-dark">' +
         '<p class="eyebrow">Apply for coaching</p>' +
         '<h1>Let\'s clear the path to <span class="gold">your next level.</span></h1>' +
-        '<p class="lede">A private 45-minute Performance Strategy Session for founders and leaders. A few questions first, so the call is spent on you.</p>' +
+        '<p class="lede">1:1 or group coaching with Rola. A few questions first, and if it\'s a fit, you\'ll book a 45-minute Performance Strategy Session right away.</p>' +
       '</header>' +
       '<section class="apply-wrap"><form id="app-form" class="apply-form" novalidate>' +
+        '<fieldset><legend>Which coaching are you interested in?</legend>' + radios("type", TYPE, v.type) + '</fieldset>' +
         '<div class="two">' +
           '<label>First name<input name="first_name" autocomplete="given-name" maxlength="60" value="' + esc(v.first_name || "") + '"></label>' +
           '<label>Last name<input name="last_name" autocomplete="family-name" maxlength="60" value="' + esc(v.last_name || "") + '"></label>' +
@@ -79,7 +81,8 @@
   function sendApplication(v, qualified) {
     var message =
       "COACHING APPLICATION from businessmanifesting.com\n" +
-      "QUALIFIED: " + (qualified ? "YES, shown the booking calendar" : "NO, not shown the calendar") + "\n\n" +
+      "QUALIFIED: " + (qualified ? "YES, shown the booking calendar" : "NO, not shown the calendar") + "\n" +
+      "Interested in: " + v.type + "\n\n" +
       "Role: " + v.role + "\n" +
       "Wants to start: " + v.start + "\n" +
       "Income or revenue: " + v.income + "\n" +
@@ -139,6 +142,7 @@
       email: f.email.value.trim().toLowerCase().slice(0, 255),
       phone: f.phone.value.trim().slice(0, 40),
       company: f.company.value.trim().slice(0, 150),
+      type: pick("type"),
       role: pick("role"),
       goal: f.goal.value.trim().slice(0, 1000),
       challenges: [f.c1.value, f.c2.value, f.c3.value].map(function (c) { return c.trim().slice(0, 1000); }),
@@ -147,7 +151,8 @@
       income: pick("income"),
       invest: pick("invest")
     };
-    var err = !v.first_name ? "Please enter your first name." :
+    var err = !v.type ? "Please choose 1:1 or group coaching." :
+      !v.first_name ? "Please enter your first name." :
       !v.last_name ? "Please enter your last name." :
       !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.email) ? "Please enter a valid email." :
       v.phone.replace(/\D/g, "").length < 7 ? "Please enter a phone or WhatsApp number." :
