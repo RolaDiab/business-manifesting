@@ -522,3 +522,7 @@ body.dark-page, .dark-page .home-hero.full, .dark-page .proof-strip, .dark-page 
 @media (max-width: 560px) {
   .dark-page .home-hero.full .split-photo::after { background: linear-gradient(0deg, rgba(var(--page-blue-rgb),0.5) 0%, rgba(var(--page-blue-rgb),0) 30%); }
 }
+/* A bit lighter across the site (2026-11-08). */
+:root { --page-blue: #285B94; --page-blue-rgb: 40,91,148; }
+.dark-page .hero-dark:not(.home-hero), .dark-page .closing { background: radial-gradient(110% 80% at 50% 0%, #4A82C2 0%, var(--page-blue) 70%); }
+.dark-page .home-hero.full .split-photo img { filter: brightness(1.2); }
