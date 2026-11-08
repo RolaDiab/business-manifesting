@@ -652,3 +652,14 @@ h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spac
 .marquee-set img { height: 44px; }
 .marquee-set img.wide { height: 32px; }
 @media (max-width: 560px) { .trust-row { padding: 12px 0 14px; } .trust-row + .trust-row { margin-top: 10px; } .marquee-set img { height: 34px; } }
+/* Ace Workforce and Government of Abu Dhabi logos have small marks: show them larger. */
+.marquee-set img.big { height: 72px; max-width: 210px; }
+@media (max-width: 560px) { .marquee-set img.big { height: 54px; } }
+/* All logos larger except JAGGAER (2026-11-08). */
+.marquee-set img:not(.wide) { height: 72px; max-width: 210px; }
+@media (max-width: 560px) { .marquee-set img:not(.wide) { height: 54px; } }
+
+/* Science heading: colorful "Manifesting", gold "mechanism" (same as the hero). */
+.hook .shine { background: linear-gradient(90deg, #9D7BFF 0%, #4FC3FF 10%, #E05CFF 20%, #FF4F9A 30%, #FFB547 40%, #9D7BFF 50%, #4FC3FF 60%, #E05CFF 70%, #FF4F9A 80%, #FFB547 90%, #9D7BFF 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: saturate(1.6) brightness(1.12); animation: flow 10s linear infinite; padding-right: 0.08em; margin-right: -0.08em; }
+.hook .radiant { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: radiant 6s ease-in-out infinite; padding-right: 0.08em; margin-right: -0.08em; }
+@media (prefers-reduced-motion: reduce) { .hook .shine, .hook .radiant { animation: none; } }
