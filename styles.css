@@ -686,3 +686,6 @@ h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spac
   .about-inner img { width: 260px; height: 340px; margin: 0 auto; }
   .about-rola p:not(.eyebrow) { margin-left: auto; margin-right: auto; }
 }
+
+/* Home Summit section: live-event stage photo behind the waitlist (2026-11-08). */
+.dark-page #summit.closing { background: linear-gradient(180deg, rgba(18,51,92,0.92) 0%, rgba(18,51,92,0.78) 45%, rgba(18,51,92,0.92) 100%), url("/stage-crowd.jpg") 50% 92% / cover no-repeat, var(--page-blue); }
