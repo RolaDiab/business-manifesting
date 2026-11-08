@@ -195,6 +195,12 @@ html { scroll-padding-top: 64px; }
 }
 @media (max-width: 520px) {
   .nav-inner { height: auto; flex-direction: column; gap: 6px; padding: 10px 16px; }
+  /* Phone: keep every menu label on one line, evenly spaced across the width */
+  .nav-links { width: 100%; justify-content: space-between; gap: 8px; }
+  .nav-links a { white-space: nowrap; font-size: 12.5px; }
+}
+@media (max-width: 360px) {
+  .nav-links { flex-wrap: wrap; justify-content: center; gap: 4px 14px; }
 }
 
 /* Work With Us: rebuilt sections */
