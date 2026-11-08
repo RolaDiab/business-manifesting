@@ -477,3 +477,8 @@ body.dark-page { background: #21457A; color: #fff; }
 }
 .proof-strip p + p { margin-top: 10px; }
 h1, h2, .proof-strip p { text-wrap: balance; }
+
+/* Home headline: stronger, richer gold for "Performance Science" (2026-11-08). */
+.home-hero .radiant { background: linear-gradient(100deg, #F0A818 0%, #FFC933 28%, #FFE27A 50%, #FFC933 72%, #F0A818 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: saturate(1.2) drop-shadow(0 0 16px rgba(255,190,40,0.45)); }
+.home-hero h1 { text-shadow: none; }
+.home-hero .radiant { background: linear-gradient(180deg, #FFD54A 0%, #FFC21A 55%, #F2A900 100%); background-size: 100% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: none; filter: none; }
