@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Archivo:wdth,wght@100..125,700..900&display=swap");
 /* Apple-style minimal: system font (real SF Pro on Apple devices), white and light-gray sections. */
 :root {
   --navy: #0F2544;
@@ -585,3 +585,20 @@ body.dark-page, .dark-page .home-hero.full, .dark-page .proof-strip, .dark-page 
 .program-list li { padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); font-size: 16px; }
 .program-list strong { color: #FFC21A; }
 @media (max-width: 900px) { .program-cards.two-up { grid-template-columns: 1fr; } }
+
+/* Wider letters like the Robbins-Greator page (2026-11-08): full-width Inter Black, looser spacing. */
+:root { --font: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+body { letter-spacing: -0.011em; }
+h1, h2, .hero h1, .home-hero h1, .home-hero.full h1 { letter-spacing: -0.022em; }
+h3, .format-card h3, .program-card h3, .chain h3 { letter-spacing: -0.012em; }
+
+/* Headlines: wide, heavy grotesk like the Robbins-Greator reference (Archivo Black, stretched). Body stays Inter. */
+h1, h2, h3, .hero h1, .home-hero h1, .home-hero.full h1, .format-card h3, .program-card h3, .chain h3, .pillar h2, .done-line, .mark {
+  font-family: "Archivo", "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif; font-weight: 900; font-stretch: 112%; font-variation-settings: "wdth" 112; letter-spacing: -0.025em; }
+h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spacing: -0.01em; }
+.mark { font-weight: 800; letter-spacing: -0.01em; }
+@media (max-width: 560px) {
+  .home-hero.full { grid-template-columns: minmax(0, 1fr) 40%; }
+  .home-hero.full h1 { font-size: clamp(22px, 6.4vw, 30px); }
+  .home-hero.full .cta-row, .home-hero.full .lede { min-width: 0; }
+}
