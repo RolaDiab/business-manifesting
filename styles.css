@@ -608,3 +608,18 @@ h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spac
 .home-hero .radiant { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: radiant 6s ease-in-out infinite; filter: none; }
 @media (prefers-reduced-motion: reduce) { .home-hero .radiant { animation: none; } }
 .t-featured blockquote .t-result { color: #fff; font-weight: 700; }
+
+/* Program cards: same tint on both; coaching card keeps only a thin gold border. Card button = hero gold button. */
+.dark-page .program-flag { background: rgba(255,255,255,0.07); border-color: rgba(242,199,92,0.55); }
+.dark-page .program-card .btn, .dark-page .cert-band button, .dark-page .program-card button { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; animation: radiant 6s ease-in-out infinite; color: var(--navy); font-weight: 600; box-shadow: 0 6px 24px rgba(242,199,92,0.35); }
+.dark-page .program-card .btn:hover, .dark-page .cert-band button:hover, .dark-page .program-card button:hover { filter: brightness(1.06); }
+@media (prefers-reduced-motion: reduce) { .dark-page .program-card .btn, .dark-page .cert-band button { animation: none; } }
+
+/* Tighter gap between Testimonials and Programs (2026-11-08). */
+.testimonials { padding-bottom: 40px; }
+.dark-page .home-programs { padding-top: 48px; }
+@media (max-width: 760px) { .testimonials { padding-bottom: 28px; } .dark-page .home-programs { padding-top: 36px; } }
+
+/* Logos are now white-on-transparent files: no filters or blending needed (fixes black boxes on iPhone). */
+.marquee-set img { filter: none; mix-blend-mode: normal; opacity: 0.9; }
+.marquee-track { background: transparent; }
