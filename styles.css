@@ -634,3 +634,8 @@ h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spac
 @media (max-width: 560px) { .marquee-set img { height: 40px; } }
 .dark-page .trust-label { color: #0F2544; }
 .dark-page .marquee-set span { color: #3D4C63; }
+
+/* Bigger section labels (Testimonials, Programs, The Science...) (2026-11-08). */
+.dark-page .eyebrow { font-size: 16px; letter-spacing: 0.16em; margin-bottom: 18px; }
+.dark-page .trust-label { font-size: 14px; }
+@media (max-width: 560px) { .dark-page .eyebrow { font-size: 14px; } }
