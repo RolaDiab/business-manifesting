@@ -475,3 +475,5 @@ body.dark-page { background: #21457A; color: #fff; }
 @media (max-width: 560px) {
   .home-hero.full .split-photo::before { display: none; }
 }
+.proof-strip p + p { margin-top: 10px; }
+h1, h2, .proof-strip p { text-wrap: balance; }
