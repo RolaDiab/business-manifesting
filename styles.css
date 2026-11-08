@@ -477,3 +477,18 @@ body.dark-page { background: #21457A; color: #fff; }
 }
 .proof-strip p + p { margin-top: 10px; }
 h1, h2, .proof-strip p { text-wrap: balance; }
+
+/* About Rola (home page) */
+.dark-page .about { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 72px); align-items: center; max-width: 1024px; margin: 0 auto; padding: 112px 22px; }
+.about-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 15%; border-radius: 28px; box-shadow: 0 30px 60px rgba(10,25,50,0.35); }
+.dark-page .about h2 { font-size: clamp(40px, 5vw, 64px); margin: 0 0 14px; }
+.dark-page .about p:not(.eyebrow) { color: rgba(255,255,255,0.75); font-size: 18px; line-height: 1.55; margin: 0 0 16px; }
+.dark-page .about p.about-role { color: #fff; font-size: 20px; font-weight: 600; }
+.about-creds { list-style: none; padding: 0; margin: 0 0 24px; border-top: 1px solid rgba(255,255,255,0.12); }
+.about-creds li { padding: 12px 0 12px 22px; border-bottom: 1px solid rgba(255,255,255,0.12); position: relative; font-size: 16px; font-weight: 600; color: #fff; }
+.about-creds li::before { content: ""; position: absolute; left: 2px; top: 20px; width: 8px; height: 8px; border-radius: 50%; background: #F2C75C; }
+.dark-page .about-link { color: #F2C75C; font-weight: 600; }
+@media (max-width: 760px) {
+  .dark-page .about { grid-template-columns: 1fr; padding: 80px 20px; gap: 32px; }
+  .about-photo { max-width: 340px; margin: 0 auto; width: 100%; }
+}
