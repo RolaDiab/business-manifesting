@@ -291,7 +291,8 @@ html { scroll-padding-top: 64px; }
   .home-hero.full { display: flex; flex-direction: column; align-items: stretch; height: auto; min-height: 0; text-align: center; }
   .home-hero.full .split-photo { position: relative; inset: auto; order: -1; flex: none; height: 30svh; min-height: 200px; }
   .home-hero.full .split-photo img { object-position: 72% 22%; }
-  .home-hero.full .split-photo::before { display: none; }
+  /* soften the dark edges of the stage photo into the page blue */
+  .home-hero.full .split-photo::before { display: block; inset: 0; width: auto; height: auto; background: linear-gradient(90deg, #21457A 0%, rgba(33,69,122,0) 22%), linear-gradient(270deg, #21457A 0%, rgba(33,69,122,0) 14%); }
   .home-hero.full .split-photo::after { background: linear-gradient(0deg, #21457A 0%, rgba(33,69,122,0) 40%); }
   .home-hero.full .split-copy { width: auto; padding: 8px 20px 28px; box-sizing: border-box; }
   .home-hero.full h1 { font-size: clamp(32px, 9vw, 56px); }
@@ -470,4 +471,7 @@ body.dark-page { background: #21457A; color: #fff; }
 @media (max-width: 760px) {
   .nav-inner { position: relative; }
   .dark-page .nav.open .nav-links { position: absolute; top: 56px; left: 0; right: 0; padding: 0 16px 16px; background: #21457A; border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: 0 24px 40px rgba(10,25,50,0.35); }
+}
+@media (max-width: 560px) {
+  .home-hero.full .split-photo::before { display: none; }
 }
