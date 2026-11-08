@@ -672,3 +672,17 @@ h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spac
 /* Summit host: tall portrait with rounded corners instead of a small circle (2026-11-08). */
 .host img.host-portrait { width: 320px; height: 440px; border-radius: 24px; object-fit: cover; object-position: 50% 18%; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
 @media (max-width: 560px) { .host img.host-portrait { width: 260px; height: 360px; } }
+
+/* Home: About Rola (2026-11-08). */
+.about-rola { padding: 72px 22px; }
+.about-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 360px 1fr; gap: 56px; align-items: center; }
+.about-inner img { width: 100%; height: 450px; object-fit: cover; object-position: 50% 20%; border-radius: 24px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+.about-rola h2 { font-size: clamp(36px, 4.4vw, 56px); margin-bottom: 20px; }
+.about-rola p:not(.eyebrow) { color: rgba(255,255,255,0.82); font-size: 18px; margin: 0 0 14px; max-width: 520px; }
+.about-rola .btn-gold-cta { margin-top: 14px; background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; animation: radiant 6s ease-in-out infinite; color: var(--navy); font-weight: 600; box-shadow: 0 6px 24px rgba(242,199,92,0.35); }
+@media (max-width: 800px) {
+  .about-rola { padding: 56px 16px; }
+  .about-inner { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .about-inner img { width: 260px; height: 340px; margin: 0 auto; }
+  .about-rola p:not(.eyebrow) { margin-left: auto; margin-right: auto; }
+}
