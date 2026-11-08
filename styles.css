@@ -668,3 +668,7 @@ h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spac
 .gold-text { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: radiant 6s ease-in-out infinite; padding-right: 0.08em; margin-right: -0.08em; }
 .shine-text { background: linear-gradient(90deg, #9D7BFF 0%, #4FC3FF 10%, #E05CFF 20%, #FF4F9A 30%, #FFB547 40%, #9D7BFF 50%, #4FC3FF 60%, #E05CFF 70%, #FF4F9A 80%, #FFB547 90%, #9D7BFF 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: saturate(1.6) brightness(1.12); animation: flow 10s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .gold-text, .shine-text { animation: none; } }
+
+/* Summit host: tall portrait with rounded corners instead of a small circle (2026-11-08). */
+.host img.host-portrait { width: 320px; height: 440px; border-radius: 24px; object-fit: cover; object-position: 50% 18%; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+@media (max-width: 560px) { .host img.host-portrait { width: 260px; height: 360px; } }
