@@ -410,5 +410,38 @@ body.dark-page { background: #0A1830; color: #fff; }
 .dark-page .cert-band { max-width: none; background: #0A1830; }
 .dark-page .cert-band > * { max-width: 760px; margin-left: auto; margin-right: auto; }
 .dark-page .cert-band h2 { max-width: 1000px; font-size: clamp(40px, 6vw, 72px); }
+/* Other pages on the dark style: Summit, Work With Us, coaching application. */
+.dark-page p, .dark-page li { color: inherit; }
+.dark-page .lede, .dark-page .meta { color: rgba(255,255,255,0.8); }
+.dark-page .hero-dark .lede { color: #fff; }
+.dark-page .hook p:not(.eyebrow) { color: rgba(255,255,255,0.75); }
+.dark-page .pillars { background: #0A1830; }
+.dark-page .pillar h2 { color: #fff; font-weight: 800; }
+.dark-page .pillars-detail .pillar-sub { color: #F2C75C; }
+.dark-page .pillars-detail li, .dark-page .pillar p { color: rgba(255,255,255,0.75); border-top-color: rgba(255,255,255,0.12); }
+.dark-page .host { background: #0F2544; }
+.dark-page .host h2 { color: #fff; }
+.dark-page .host p:not(.eyebrow) { color: rgba(255,255,255,0.78); }
+.dark-page .feature { background: #0A1830; }
+.dark-page .feature-soft { background: #0F2544; }
+.dark-page .feature h2 { color: #fff; }
+.dark-page .feature li { color: rgba(255,255,255,0.85); border-top-color: rgba(255,255,255,0.12); }
+.dark-page .formats-band { background: #0A1830; }
+.dark-page .format-card h3 { color: #fff; }
+.dark-page .offers { background: #0A1830; max-width: none; padding-left: max(22px, calc((100vw - 1024px) / 2)); padding-right: max(22px, calc((100vw - 1024px) / 2)); }
+.dark-page .offer { background: #13294A; border: 1px solid rgba(255,255,255,0.08); }
+.dark-page .offer h2 { color: #fff; }
+.dark-page .offer p:not(.num):not(.eyebrow):not(.error):not(.done-line) { color: rgba(255,255,255,0.75); }
+.dark-page .statement, .dark-page .start { background: #0F2544; }
+.dark-page .statement h2 span, .dark-page .start p:not(.eyebrow) { color: rgba(255,255,255,0.7); }
+.dark-page .apply-center p, .dark-page .apply-alt { color: rgba(255,255,255,0.75); }
+.dark-page .apply-wrap h1, .dark-page .apply-wrap h2 { color: #fff; }
+.dark-page .apply-form label, .dark-page .apply-form legend { color: #fff; }
+.dark-page .apply-form .opt { background: #13294A; border-color: rgba(255,255,255,0.15); color: #fff; }
+.dark-page .apply-form .opt:has(input:checked) { background: #1D3F70; border-color: #F2C75C; }
+.dark-page .apply-form .opt input { accent-color: #F2C75C; }
+.dark-page .apply-form button { background: #F2C75C; color: #0F2544; }
+.dark-page .apply-form button:hover { background: #F7D67E; }
+.dark-page .inquiry-form select { border-color: transparent; }
 .dark-page .foot { background: #071226; color: rgba(255,255,255,0.55); border-top-color: rgba(255,255,255,0.08); }
 .dark-page .foot a { color: rgba(255,255,255,0.7); }
