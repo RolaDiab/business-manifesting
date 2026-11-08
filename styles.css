@@ -694,3 +694,7 @@ h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spac
 .dark-page #summit.closing { background: radial-gradient(110% 80% at 50% 0%, #2A5F96 0%, #16406C 40%, var(--page-blue) 80%); }
 .closing .summit-photo { display: block; width: 100%; max-width: 980px; height: 380px; margin: 0 auto 44px; object-fit: cover; object-position: 50% 78%; border-radius: 24px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
 @media (max-width: 560px) { .closing .summit-photo { height: 220px; margin-bottom: 32px; border-radius: 18px; } }
+
+/* Programs: both cards identical in size, tint and border (2026-11-08). */
+.program-cards.two-up { grid-template-columns: 1fr 1fr; align-items: stretch; }
+.dark-page .program-card, .dark-page .program-flag { background: rgba(255,255,255,0.07); border: 1px solid rgba(242,199,92,0.45); }
