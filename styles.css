@@ -731,3 +731,26 @@ h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spac
 @media (max-width: 900px) { .program-cards.two-up { grid-template-columns: 1fr; } }
 /* Safety net: nothing may make the page slide sideways on phones. 'clip' keeps the sticky menu working. */
 html, body { overflow-x: clip; }
+
+/* Phone hero (2026-11-09): match desktop. The stage photo is a full-width background behind the
+   headline that fades into the page blue, not a separate rounded box. */
+@media (max-width: 560px) {
+  .home-hero.full { grid-template-columns: minmax(0, 1fr); padding-top: 0; }
+  .home-hero.full .split-photo { grid-column: 1; grid-row: 1; z-index: 0; position: relative; inset: auto;
+    margin: 0 -16px; height: min(122vw, 500px); aspect-ratio: auto; border-radius: 0; overflow: hidden; }
+  .home-hero.full .split-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    object-position: 74% 14%; transform: none; }
+  .dark-page .home-hero.full .split-photo::before { display: block; inset: 0; width: auto; height: auto;
+    background: linear-gradient(90deg, var(--page-blue) 0%, rgba(var(--page-blue-rgb),0.85) 22%, rgba(var(--page-blue-rgb),0.35) 48%, rgba(var(--page-blue-rgb),0) 66%); }
+  .dark-page .home-hero.full .split-photo::after {
+    background: linear-gradient(180deg, rgba(var(--page-blue-rgb),0.6) 0%, rgba(var(--page-blue-rgb),0) 16%),
+                linear-gradient(0deg, var(--page-blue) 0%, rgba(var(--page-blue-rgb),0) 34%); }
+  .home-hero.full h1 { grid-column: 1; grid-row: 1; position: relative; z-index: 2; align-self: center;
+    max-width: 62%; font-size: clamp(28px, 8.6vw, 38px); text-shadow: 0 2px 18px rgba(var(--page-blue-rgb),0.6); }
+  .home-hero.full .lede { margin-top: -6px; position: relative; z-index: 2; }
+}
+@media (max-width: 560px) {
+  .home-hero.full .split-photo { height: min(104vw, 440px); }
+  .home-hero.full .split-photo img { object-position: 96% 10%; }
+  .home-hero.full h1 { max-width: 56%; font-size: clamp(25px, 7.4vw, 33px); }
+}
