@@ -778,3 +778,12 @@ html, body { overflow-x: clip; }
 }
 /* Shadows paint over gradient-filled text and dull it; keep the colored words shadow-free. */
 .home-hero .radiant, .home-hero .shine { text-shadow: none; }
+/* Phone tweaks (2026-11-09): Rola a little in from the edge; warmer, richer gold (less yellow). */
+@media (max-width: 560px) {
+  .home-hero.full .split-photo img { right: -17vw; width: calc(100% + 17vw); }
+  .home-hero .radiant { background: linear-gradient(100deg, #DE9B26 0%, #F2BF4B 30%, #F9D98A 50%, #F2BF4B 70%, #DE9B26 100%);
+    background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; }
+}
+@media (max-width: 560px) and (prefers-reduced-motion: reduce) {
+  .home-hero .radiant { background: linear-gradient(180deg, #F7D27A 0%, #F0BD48 55%, #E4A632 100%); background-size: 100% 100%; -webkit-background-clip: text; background-clip: text; }
+}
