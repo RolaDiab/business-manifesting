@@ -760,3 +760,4 @@ html, body { overflow-x: clip; }
   .home-hero.full h1 { max-width: 54%; }
 }
 @media (max-width: 360px) { .home-hero.full h1 { font-size: 22px; } }
+@media (max-width: 560px) { .home-hero.full .split-photo img { right: -22vw; width: calc(100% + 22vw); } }
