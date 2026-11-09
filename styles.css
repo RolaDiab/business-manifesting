@@ -726,3 +726,8 @@ h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spac
   .dark-page .chain, .dark-page .pillars, .dark-page .host, .dark-page .feature, .dark-page .formats-band, .dark-page .closing, .dark-page .cert-band, .dark-page .home-programs { padding-top: 40px; padding-bottom: 44px; }
   .dark-page .about-rola { padding-top: 36px; padding-bottom: 36px; }
 }
+
+/* Phones and tablets: stack the program cards (the side-by-side rule above was overriding this). */
+@media (max-width: 900px) { .program-cards.two-up { grid-template-columns: 1fr; } }
+/* Safety net: nothing may make the page slide sideways on phones. 'clip' keeps the sticky menu working. */
+html, body { overflow-x: clip; }
