@@ -761,3 +761,20 @@ html, body { overflow-x: clip; }
 }
 @media (max-width: 360px) { .home-hero.full h1 { font-size: 22px; } }
 @media (max-width: 560px) { .home-hero.full .split-photo img { right: -22vw; width: calc(100% + 22vw); } }
+
+/* Phones: the strongest gold for "Performance Science". The desktop shimmer runs from bronze to pale cream,
+   which reads muted over the photo on a small screen; this one stays bright gold at every frame. */
+@media (max-width: 560px) {
+  .home-hero .radiant { background: linear-gradient(100deg, #FFB800 0%, #FFD23F 30%, #FFE985 50%, #FFD23F 70%, #FFB800 100%);
+    background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+    animation: radiant 6s ease-in-out infinite; filter: drop-shadow(0 0 14px rgba(255,190,40,0.35)); }
+  .home-hero .shine { filter: saturate(1.7) brightness(1.15); }
+}
+/* When motion is switched off (iPhone "Reduce Motion"), show solid bright colors, never a dull frozen frame. */
+@media (prefers-reduced-motion: reduce) {
+  .home-hero .radiant { animation: none; background: linear-gradient(180deg, #FFE066 0%, #FFCF2E 55%, #FFC21A 100%); background-size: 100% 100%;
+    -webkit-background-clip: text; background-clip: text; }
+  .home-hero .shine { animation: none; background-position: 15% 0; }
+}
+/* Shadows paint over gradient-filled text and dull it; keep the colored words shadow-free. */
+.home-hero .radiant, .home-hero .shine { text-shadow: none; }
