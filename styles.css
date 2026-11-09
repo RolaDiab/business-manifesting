@@ -788,3 +788,5 @@ html, body { overflow-x: clip; }
   .home-hero .radiant { background: linear-gradient(180deg, #F7D27A 0%, #F0BD48 55%, #E4A632 100%); background-size: 100% 100%; -webkit-background-clip: text; background-clip: text; }
 }
 @media (max-width: 560px) { .home-hero.full .split-photo img { right: -12vw; width: calc(100% + 12vw); } }
+.about-rola p strong { color: #fff; font-weight: 700; }
+.about-rola p:not(.eyebrow) { font-size: 17px; margin-bottom: 12px; }
