@@ -754,3 +754,9 @@ html, body { overflow-x: clip; }
   .home-hero.full .split-photo img { object-position: 96% 10%; }
   .home-hero.full h1 { max-width: 56%; font-size: clamp(25px, 7.4vw, 33px); }
 }
+/* Phone hero: slide the photo further right so there is clear space between Rola and the headline. */
+@media (max-width: 560px) {
+  .home-hero.full .split-photo img { left: auto; right: -16vw; width: calc(100% + 16vw); object-position: 96% 10%; }
+  .home-hero.full h1 { max-width: 54%; }
+}
+@media (max-width: 360px) { .home-hero.full h1 { font-size: 22px; } }
