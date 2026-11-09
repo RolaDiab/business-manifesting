@@ -50,7 +50,7 @@
       '<header class="hero hero-short hero-dark">' +
         '<p class="eyebrow">Apply for coaching</p>' +
         '<h1>Let\'s clear the path to <span class="gold">your biggest wins.</span></h1>' +
-        '<p class="lede">1:1 or group coaching with Rola.<br>A few questions first, and if it\'s a fit, you\'ll book a 45-minute Performance Strategy Session right away.</p>' +
+        '<p class="lede">1:1 or group coaching in the Business Manifesting method.<br>A few questions first, and if it\'s a fit, you\'ll book a 45-minute Performance Strategy Session right away.</p>' +
       '</header>' +
       '<section class="apply-wrap"><form id="app-form" class="apply-form" novalidate>' +
         '<fieldset><legend>Which coaching are you interested in?</legend>' + radios("type", TYPE, v.type) + '</fieldset>' +
@@ -73,7 +73,7 @@
         '<fieldset><legend>Rola\'s work combines science-backed performance tools with energy clearing. How open are you to energy clearing?</legend>' + radios("energy", ENERGY, v.energy) + '</fieldset>' +
         '<fieldset><legend>When do you want to start?</legend>' + radios("start", START, v.start) + '</fieldset>' +
         '<fieldset><legend>What is your annual income, or your business revenue if you own one (USD)?</legend>' + radios("income", INCOME, v.income) + '</fieldset>' +
-        '<fieldset><legend>Coaching with Rola is a private, premium engagement. If it\'s the right fit, are you ready to invest now?</legend>' + radios("invest", INVEST, v.invest) + '</fieldset>' +
+        '<fieldset><legend>Business Manifesting Coaching is a private, premium engagement. If it\'s the right fit, are you ready to invest now?</legend>' + radios("invest", INVEST, v.invest) + '</fieldset>' +
         (error ? '<p class="error">' + esc(error) + '</p>' : "") +
         '<button type="submit">Submit my application</button>' +
         '<p class="apply-alt">Not ready yet? <a class="link" href="' + CONFIG.QUIZ_URL + '">Take the free Performance Profile</a></p>' +
@@ -112,7 +112,7 @@
         '<p class="lede">Pick a time for your Performance Strategy Session. You\'ll get a confirmation by email.</p>' +
       '</header>' +
       '<section class="apply-wrap">' +
-        '<div class="calendar"><iframe src="' + CONFIG.BOOKING_URL + '" title="Book your Performance Strategy Session with Rola" loading="lazy"></iframe></div>' +
+        '<div class="calendar"><iframe src="' + CONFIG.BOOKING_URL + '" title="Book your Performance Strategy Session" loading="lazy"></iframe></div>' +
         '<p class="apply-alt">Calendar not loading? <a class="link" href="' + CONFIG.BOOKING_URL + '" target="_blank" rel="noopener">Open it in a new tab</a></p>' +
       '</section>';
     window.scrollTo(0, 0);
