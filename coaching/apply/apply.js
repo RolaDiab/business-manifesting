@@ -50,7 +50,7 @@
       '<header class="hero hero-short hero-dark">' +
         '<p class="eyebrow">Apply for coaching</p>' +
         '<h1>Let\'s clear the path to <span class="gold">your biggest wins.</span></h1>' +
-        '<p class="lede">1:1 or group coaching in the Business Manifesting method.<br>A few questions first, and if it\'s a fit, you\'ll book a 45-minute Performance Strategy Session right away.</p>' +
+        '<p class="lede">1:1 or group coaching with Rola or a member of her team.<br>A few questions first, and if it\'s a fit, you\'ll book a 45-minute Performance Strategy Session right away.</p>' +
       '</header>' +
       '<section class="apply-wrap"><form id="app-form" class="apply-form" novalidate>' +
         '<fieldset><legend>Which coaching are you interested in?</legend>' + radios("type", TYPE, v.type) + '</fieldset>' +
