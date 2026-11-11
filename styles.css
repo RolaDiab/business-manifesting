@@ -790,3 +790,9 @@ html, body { overflow-x: clip; }
 @media (max-width: 560px) { .home-hero.full .split-photo img { right: -12vw; width: calc(100% + 12vw); } }
 .about-rola p strong { color: #fff; font-weight: 700; }
 .about-rola p:not(.eyebrow) { font-size: 17px; margin-bottom: 12px; }
+
+/* Science chain: labels aligned on one line regardless of description length (2026-11-10). */
+.chain li { display: flex; flex-direction: column; align-items: center; }
+.chain li p { flex: 1; min-height: 2.8em; margin-bottom: 14px; }
+.chain li span { margin-top: auto; }
+@media (max-width: 560px) { .chain li p { min-height: 0; } }
