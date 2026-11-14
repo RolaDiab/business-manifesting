@@ -808,3 +808,9 @@ html, body { overflow-x: clip; }
   .t-video video { max-width: 280px; margin: 0 auto; display: block; }
 }
 .t-video video:not([controls]) { cursor: pointer; }
+
+/* Energy section, 2026-11-14 */
+.dark-page .hook.energy-band { padding-bottom: 96px; margin-top: 56px; }
+.energy-band .btn { margin-top: 18px; }
+@media (max-width: 640px) { .dark-page .hook.energy-band { padding-bottom: 64px; margin-top: 32px; } }
+.energy-band .btn-gold-cta { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; animation: radiant 6s ease-in-out infinite; color: var(--navy); font-weight: 600; box-shadow: 0 6px 24px rgba(242,199,92,0.35); }
