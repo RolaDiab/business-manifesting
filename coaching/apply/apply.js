@@ -50,7 +50,7 @@
       '<header class="hero hero-short hero-dark">' +
         '<p class="eyebrow">Apply for coaching</p>' +
         '<h1>Let\'s clear the path to <span class="gold">your biggest wins.</span></h1>' +
-        '<p class="lede">1:1 or group coaching with Rola or a member of her team.<br>A few questions first, and if it\'s a fit, you\'ll book a 45-minute Performance Strategy Session right away.</p>' +
+        '<p class="lede">1:1 or group coaching.<br>A few questions first, and if it\'s a fit, you\'ll book a 45-minute Performance Strategy Session right away.</p>' +
       '</header>' +
       '<section class="apply-wrap"><form id="app-form" class="apply-form" novalidate>' +
         '<fieldset><legend>Which coaching are you interested in?</legend>' + radios("type", TYPE, v.type) + '</fieldset>' +
@@ -70,7 +70,7 @@
           [1, 2, 3].map(function (n) { return '<textarea name="c' + n + '" rows="3" maxlength="1000" aria-label="Challenge ' + n + '" placeholder="' + n + '.' + (n === 1 ? ' For example: I second-guess big decisions, so I delay them for weeks and my team waits on me.' : '') + '">' + esc((v.challenges || [])[n - 1] || "") + '</textarea>'; }).join("") +
         '</fieldset>' +
         '<label>What do you want to be true 90 days from now?<textarea name="goal" rows="3" maxlength="1000">' + esc(v.goal || "") + '</textarea></label>' +
-        '<fieldset><legend>Rola\'s work combines science-backed performance tools with energy clearing. How open are you to energy clearing?</legend>' + radios("energy", ENERGY, v.energy) + '</fieldset>' +
+        '<fieldset><legend>Our work combines science-backed performance tools with energy clearing. How open are you to energy clearing?</legend>' + radios("energy", ENERGY, v.energy) + '</fieldset>' +
         '<fieldset><legend>When do you want to start?</legend>' + radios("start", START, v.start) + '</fieldset>' +
         '<fieldset><legend>What is your annual income, or your business revenue if you own one (USD)?</legend>' + radios("income", INCOME, v.income) + '</fieldset>' +
         '<fieldset><legend>Business Manifesting Coaching is a private, premium engagement. If it\'s the right fit, are you ready to invest now?</legend>' + radios("invest", INVEST, v.invest) + '</fieldset>' +
@@ -123,7 +123,7 @@
       '<header class="hero hero-short hero-dark">' +
         '<p class="eyebrow">Application received</p>' +
         '<h1>Thank you, <span class="gold">' + esc(v.first_name) + '.</span></h1>' +
-        '<p class="lede">Based on your answers, a strategy session isn\'t the right next step just yet. Rola reads every application, and you\'ll keep getting her insights by email.</p>' +
+        '<p class="lede">Based on your answers, a strategy session isn\'t the right next step just yet. We read every application, and you\'ll keep getting insights by email.</p>' +
       '</header>' +
       '<section class="apply-wrap apply-center">' +
         '<p>In the meantime, find your biggest growth block with the free Performance Profile.</p>' +
