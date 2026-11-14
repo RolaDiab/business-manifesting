@@ -807,3 +807,4 @@ html, body { overflow-x: clip; }
   .t-video { grid-template-columns: 1fr; gap: 22px; }
   .t-video video { max-width: 280px; margin: 0 auto; display: block; }
 }
+.t-video video:not([controls]) { cursor: pointer; }
