@@ -838,3 +838,8 @@ html, body { overflow-x: clip; }
   .product-buy { width: 100%; }
   .product-buy .btn { flex: 1; }
 }
+
+/* Digital Products page: tighter top */
+.hero.products-hero { padding-top: 48px; padding-bottom: 32px; }
+.formats-band.products-band { padding-top: 16px; }
+@media (max-width: 760px) { .hero.products-hero { padding-top: 32px; padding-bottom: 24px; } .formats-band.products-band { padding-top: 8px; } }
