@@ -865,7 +865,9 @@ html, body { overflow-x: clip; }
 .detail-quote span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); }
 .detail-buy-top { margin: 0 0 26px; padding-top: 0; }
 .detail-buy { margin-top: 10px; }
-.detail-body .detail-note { font-size: 14px; margin: 14px 0 0; }
+/* Beats .product-body > p:not(.num), which otherwise zeroes the gap under the buy button. */
+.product-body.detail-body > p.detail-note { font-size: 14px; margin: 16px 0 0; }
+.product-body.detail-body > p.detail-note + p.detail-note { margin-top: 8px; }
 @media (max-width: 600px) { .detail-body { padding: 26px 20px; } .detail-buy .btn, .detail-buy-top .btn { width: 100%; text-align: center; } }
 .detail-faq { margin: 0 0 18px; border-top: 1px solid var(--line); }
 .detail-faq details { border-bottom: 1px solid var(--line); padding: 14px 0; }
