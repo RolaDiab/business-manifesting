@@ -847,3 +847,33 @@ html, body { overflow-x: clip; }
 /* 2026-11-16: no rainbow anywhere. "Manifesting" and other accent words use the site gold (same as the gold button). */
 .shine, .shine-text, .hero-dark .shine, .hook .shine, .home-hero .shine { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: none; animation: radiant 6s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .shine, .shine-text, .hero-dark .shine, .hook .shine, .home-hero .shine { animation: none; background: linear-gradient(180deg, #F2C75C 0%, #E4AE3E 100%); background-size: 100% 100%; -webkit-background-clip: text; background-clip: text; } }
+
+/* Product detail pages (2026-11-16) */
+.detail-band { padding-top: 24px; }
+.detail-back { max-width: 760px; margin: 0 auto 16px; text-align: left; font-size: 15px; }
+.detail-back a { color: rgba(255,255,255,0.85); text-decoration: none; }
+.detail-back a:hover { color: #fff; }
+.detail-card { text-align: left; }
+.detail-title { font-size: clamp(28px, 4.4vw, 40px); line-height: 1.12; margin: 0 0 10px; color: var(--ink); }
+.detail-tagline { font-size: 20px; font-weight: 600; color: var(--navy) !important; margin: 0 0 22px !important; }
+.detail-body p { color: var(--muted); margin: 0 0 18px; }
+.detail-body p strong { color: var(--ink); }
+.detail-h { font-size: 20px; font-weight: 600; color: var(--ink); margin: 18px 0 10px; }
+.detail-list { margin: 0 0 18px; padding-left: 20px; color: var(--muted); display: grid; gap: 6px; }
+.detail-list strong { color: var(--navy); }
+.detail-quote { margin: 4px 0 22px; padding: 16px 20px; border-left: 3px solid #D6B368; background: #FAF7F0; border-radius: 0 12px 12px 0; color: var(--ink); font-size: 17px; }
+.detail-quote span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); }
+.detail-buy-top { margin: 0 0 26px; padding-top: 0; }
+.detail-buy { margin-top: 10px; }
+.detail-body .detail-note { font-size: 14px; margin: 14px 0 0; }
+@media (max-width: 600px) { .detail-body { padding: 26px 20px; } .detail-buy .btn, .detail-buy-top .btn { width: 100%; text-align: center; } }
+.detail-faq { margin: 0 0 18px; border-top: 1px solid var(--line); }
+.detail-faq details { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.detail-faq summary { cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; position: relative; padding-right: 28px; }
+.detail-faq summary::-webkit-details-marker { display: none; }
+.detail-faq summary::after { content: "+"; position: absolute; right: 4px; top: -2px; font-size: 22px; color: var(--gold-text); }
+.detail-faq details[open] summary::after { content: "\2212"; }
+.detail-faq details p { margin: 10px 0 0; }
+.dark-page .detail-body h2.detail-h { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: 0; color: var(--ink); -webkit-text-fill-color: currentColor; background: none; margin: 22px 0 10px; text-shadow: none; }
+.dark-page .detail-body h1.detail-title { color: var(--ink); -webkit-text-fill-color: currentColor; background: none; text-shadow: none; }
+.detail-faq, .detail-list, .detail-quote, .detail-body > p { width: 100%; box-sizing: border-box; }
