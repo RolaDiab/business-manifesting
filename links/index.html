@@ -28,9 +28,9 @@
     h1 { font-family: "Archivo", "Inter", sans-serif; font-stretch: 112%; font-weight: 800; font-size: 26px; margin-top: 18px; letter-spacing: -0.01em; }
     .handle { color: var(--gold); font-weight: 500; font-size: 15px; margin-top: 4px; }
     .tag { text-align: center; color: rgba(255,255,255,.82); font-size: 15px; line-height: 1.5; margin-top: 12px; max-width: 360px; }
-    .shine { background: linear-gradient(90deg,#9D7BFF,#4FC3FF,#E05CFF,#FF4F9A,#FFB547,#9D7BFF); background-size: 200% 100%;
-      -webkit-background-clip: text; background-clip: text; color: transparent; animation: flow 10s linear infinite; }
-    @keyframes flow { to { background-position: 200% 0; } }
+    .shine { background: linear-gradient(100deg,#D8962A 0%,#F2C75C 30%,#FFF1C2 50%,#F2C75C 70%,#D8962A 100%); background-size: 250% 100%;
+      -webkit-background-clip: text; background-clip: text; color: transparent; animation: radiant 6s ease-in-out infinite; }
+    @keyframes radiant { 0%, 100% { background-position: 100% 0; } 50% { background-position: 0 0; } }
     @media (prefers-reduced-motion: reduce) { .shine { animation: none; } }
 
     .featured { display: block; width: 100%; margin-top: 30px; background: #fff; color: var(--ink); border-radius: 20px; overflow: hidden;

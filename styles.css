@@ -120,7 +120,7 @@ button[disabled] { opacity: 0.6; cursor: wait; }
 .hero-dark .done .eyebrow { color: #F2C75C; }
 .hero-dark .radiant { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF4C9 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 18px rgba(242,199,92,0.45)); animation: radiant 6s ease-in-out infinite; }
 @keyframes radiant { 0%, 100% { background-position: 100% 0; } 50% { background-position: 0 0; } }
-.hero-dark .shine { background: linear-gradient(90deg, #9D7BFF 0%, #4FC3FF 10%, #E05CFF 20%, #FF4F9A 30%, #FFB547 40%, #9D7BFF 50%, #4FC3FF 60%, #E05CFF 70%, #FF4F9A 80%, #FFB547 90%, #9D7BFF 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: saturate(1.25); animation: flow 10s linear infinite; }
+.hero-dark .shine { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: saturate(1.25); animation: flow 10s linear infinite; }
 @keyframes flow { from { background-position: 0 0; } to { background-position: -100% 0; } }
 .hero-dark button { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; animation: radiant 6s ease-in-out infinite; box-shadow: 0 6px 24px rgba(242,199,92,0.35); }
 .hero-dark button:hover { filter: brightness(1.06); }
@@ -660,13 +660,13 @@ h3, .format-card h3, .program-card h3, .chain h3 { font-weight: 800; letter-spac
 @media (max-width: 560px) { .marquee-set img:not(.wide) { height: 54px; } }
 
 /* Science heading: colorful "Manifesting", gold "mechanism" (same as the hero). */
-.hook .shine { background: linear-gradient(90deg, #9D7BFF 0%, #4FC3FF 10%, #E05CFF 20%, #FF4F9A 30%, #FFB547 40%, #9D7BFF 50%, #4FC3FF 60%, #E05CFF 70%, #FF4F9A 80%, #FFB547 90%, #9D7BFF 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: saturate(1.6) brightness(1.12); animation: flow 10s linear infinite; padding-right: 0.08em; margin-right: -0.08em; }
+.hook .shine { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: saturate(1.6) brightness(1.12); animation: flow 10s linear infinite; padding-right: 0.08em; margin-right: -0.08em; }
 .hook .radiant { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: radiant 6s ease-in-out infinite; padding-right: 0.08em; margin-right: -0.08em; }
 @media (prefers-reduced-motion: reduce) { .hook .shine, .hook .radiant { animation: none; } }
 
 /* Accent words outside the hero: gold for the payoff word, gradient only on "Manifesting" (2026-11-08). */
 .gold-text { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: radiant 6s ease-in-out infinite; padding-right: 0.08em; margin-right: -0.08em; }
-.shine-text { background: linear-gradient(90deg, #9D7BFF 0%, #4FC3FF 10%, #E05CFF 20%, #FF4F9A 30%, #FFB547 40%, #9D7BFF 50%, #4FC3FF 60%, #E05CFF 70%, #FF4F9A 80%, #FFB547 90%, #9D7BFF 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: saturate(1.6) brightness(1.12); animation: flow 10s linear infinite; }
+.shine-text { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: saturate(1.6) brightness(1.12); animation: flow 10s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .gold-text, .shine-text { animation: none; } }
 
 /* Summit host: tall portrait with rounded corners instead of a small circle (2026-11-08). */
@@ -843,3 +843,7 @@ html, body { overflow-x: clip; }
 .hero.products-hero { padding-top: 48px; padding-bottom: 32px; }
 .formats-band.products-band { padding-top: 16px; }
 @media (max-width: 760px) { .hero.products-hero { padding-top: 32px; padding-bottom: 24px; } .formats-band.products-band { padding-top: 8px; } }
+
+/* 2026-11-16: no rainbow anywhere. "Manifesting" and other accent words use the site gold (same as the gold button). */
+.shine, .shine-text, .hero-dark .shine, .hook .shine, .home-hero .shine { background: linear-gradient(100deg, #D8962A 0%, #F2C75C 30%, #FFF1C2 50%, #F2C75C 70%, #D8962A 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; filter: none; animation: radiant 6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .shine, .shine-text, .hero-dark .shine, .hook .shine, .home-hero .shine { animation: none; background: linear-gradient(180deg, #F2C75C 0%, #E4AE3E 100%); background-size: 100% 100%; -webkit-background-clip: text; background-clip: text; } }
