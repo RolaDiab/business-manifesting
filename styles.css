@@ -879,3 +879,6 @@ html, body { overflow-x: clip; }
 .detail-faq, .detail-list, .detail-quote, .detail-body > p { width: 100%; box-sizing: border-box; }
 .detail-body .price-note { font-size: 14px; color: var(--muted); margin-left: -10px; }
 @media (max-width: 600px) { .detail-buy, .detail-buy-top { flex-wrap: wrap; } }
+.detail-body .detail-faqlink { margin: -14px 0 24px; font-size: 15px; }
+.detail-faqlink a { color: var(--navy); }
+#faq { scroll-margin-top: 80px; }
