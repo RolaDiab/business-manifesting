@@ -884,3 +884,33 @@ html, body { overflow-x: clip; }
 .detail-body .detail-faqlink { margin: -14px 0 24px; font-size: 15px; }
 .detail-faqlink a { color: var(--navy); }
 #faq { scroll-margin-top: 80px; }
+
+/* Product detail pages, stronger layout (2026-11-16): darker body text, a quote that stands out,
+   gold checks, a framed "what's inside", and a navy closing panel with the price. */
+.product-body.detail-body > p:not(.num):not(.detail-tagline):not(.detail-faqlink) { color: #3A3A3F; line-height: 1.6; }
+.detail-body .detail-list { color: #3A3A3F; }
+.detail-body .detail-quote { margin: 8px 0 26px; padding: 22px 26px; border-left: 4px solid #F2C75C; border-radius: 0 16px 16px 0; background: var(--soft); font-size: 21px; line-height: 1.45; font-weight: 500; letter-spacing: -0.015em; color: var(--navy); }
+.detail-body .detail-quote span { margin-top: 12px; font-size: 14px; font-weight: 400; letter-spacing: 0; line-height: 1.5; }
+.detail-body .detail-checks { list-style: none; padding-left: 0; gap: 10px; }
+.detail-checks li { position: relative; padding-left: 34px; }
+.detail-checks li::before { content: ""; position: absolute; left: 0; top: 2px; width: 22px; height: 22px; border-radius: 50%; background: #F2C75C url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230F2544' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 14px no-repeat; }
+.detail-body .detail-inside { list-style: none; padding: 4px 22px; border: 1px solid var(--line); border-radius: 16px; gap: 0; }
+.detail-inside li { position: relative; padding: 13px 0 13px 24px; }
+.detail-inside li + li { border-top: 1px solid var(--line); }
+.detail-inside li::before { content: ""; position: absolute; left: 2px; top: 22px; width: 8px; height: 8px; border-radius: 50%; background: #F2C75C; }
+.detail-close { width: 100%; box-sizing: border-box; margin: 18px 0 0; padding: 34px 30px 30px; border-radius: 20px; background: var(--navy); text-align: center; display: flex; flex-direction: column; align-items: center; }
+.detail-body .detail-close p { margin: 0; }
+.detail-body .detail-close .detail-close-title { font-family: "Archivo", "Inter", sans-serif; font-weight: 900; font-stretch: 112%; font-variation-settings: "wdth" 112; font-size: clamp(24px, 3.4vw, 30px); line-height: 1.15; letter-spacing: -0.02em; color: #fff; }
+.detail-body .detail-close .detail-close-line { margin-top: 10px; color: rgba(255,255,255,0.78); max-width: 520px; }
+.detail-close .detail-buy { margin: 22px 0 0; padding: 0; justify-content: center; }
+.detail-close .price { color: #fff; }
+.detail-body .detail-close .price-note { color: rgba(255,255,255,0.7); }
+.detail-close .btn-buy { background: #F2C75C; color: var(--navy); font-weight: 700; }
+.detail-close .btn-buy:hover { background: #F6D47A; }
+.detail-body .detail-close .detail-note { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.62); }
+.detail-body .detail-close .detail-note + .detail-note { margin-top: 6px; }
+@media (max-width: 600px) {
+  .detail-body .detail-quote { font-size: 19px; padding: 18px 20px; }
+  .detail-close { padding: 28px 20px 24px; }
+  .detail-close .detail-buy { width: 100%; }
+}
