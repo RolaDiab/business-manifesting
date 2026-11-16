@@ -877,3 +877,5 @@ html, body { overflow-x: clip; }
 .dark-page .detail-body h2.detail-h { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: 0; color: var(--ink); -webkit-text-fill-color: currentColor; background: none; margin: 22px 0 10px; text-shadow: none; }
 .dark-page .detail-body h1.detail-title { color: var(--ink); -webkit-text-fill-color: currentColor; background: none; text-shadow: none; }
 .detail-faq, .detail-list, .detail-quote, .detail-body > p { width: 100%; box-sizing: border-box; }
+.detail-body .price-note { font-size: 14px; color: var(--muted); margin-left: -10px; }
+@media (max-width: 600px) { .detail-buy, .detail-buy-top { flex-wrap: wrap; } }
