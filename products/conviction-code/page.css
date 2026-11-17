@@ -1,0 +1,78 @@
+/* The Conviction Code program page (2026-11-17). Loads after /products/sales.css and only re-themes it for this page (body.cc).
+   Navy instead of plum, plus the media slots that hold the program video and audio until they're approved. */
+.sp.cc { --plum: #0A1A38; --navy: #0F2544; background: var(--plum); }
+.cc .nav { background: rgba(10,26,56,0.85); }
+.cc .hero-x { background: radial-gradient(80% 70% at 70% 10%, #1E4A85 0%, var(--plum) 70%); }
+.cc .navy { background: #12335C; }
+.cc .finalx { background: radial-gradient(90% 120% at 50% 0%, #1E4A85 0%, var(--plum) 70%); }
+.cc .foot, .cc .foot a { background: var(--plum); }
+.cc .buybar { background: rgba(10,26,56,0.94); }
+.cc .signs li::before { background: var(--gold); box-shadow: 0 0 0 5px rgba(242,199,92,0.2); }
+
+/* ---------- Media slots ----------
+   Each .media-slot is a placeholder. When the video or audio is approved, replace the whole
+   <div class="media-slot" data-slot="..."> with the <video> or <audio> element. Notes sit beside each slot in index.html. */
+.cc .media-slot { position: relative; overflow: hidden; border-radius: 22px; background: #0F2544; box-shadow: 0 30px 80px rgba(0,0,0,0.45); }
+.cc .media-slot.video { aspect-ratio: 16 / 9; }
+.cc .media-slot.video img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
+.cc .media-slot.video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,26,56,0) 40%, rgba(10,26,56,0.85) 100%); }
+.cc .media-slot .play { position: absolute; left: 50%; top: 50%; z-index: 1; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; display: grid; place-items: center; background: rgba(242,199,92,0.16); border: 2px solid rgba(242,199,92,0.7); }
+.cc .media-slot .play svg { width: 26px; height: 26px; margin-left: 4px; fill: var(--gold); }
+.cc .media-slot .slot-label { position: absolute; left: 20px; right: 20px; bottom: 18px; z-index: 1; margin: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; color: #fff; font-size: 15px; font-weight: 600; }
+.cc .media-slot .soon { padding: 5px 12px; border-radius: 980px; background: rgba(242,199,92,0.16); border: 1px solid rgba(242,199,92,0.45); color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.cc .media-slot.audio { display: flex; align-items: center; gap: 18px; padding: 22px 24px; box-shadow: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.06); }
+.cc .media-slot.audio .play { position: static; margin: 0; flex: 0 0 56px; width: 56px; height: 56px; }
+.cc .media-slot.audio .play svg { width: 20px; height: 20px; }
+.cc .media-slot.audio .a-body { flex: 1; min-width: 0; }
+.cc .media-slot.audio .a-title { margin: 0; color: #fff; font-weight: 700; font-size: 17px; }
+.cc .media-slot.audio .a-meta { margin: 4px 0 10px; color: rgba(255,255,255,0.65); font-size: 14px; }
+.cc .wave { display: flex; align-items: center; gap: 3px; height: 26px; }
+.cc .wave i { flex: 1; max-width: 4px; border-radius: 2px; background: rgba(242,199,92,0.45); }
+
+/* Hero: the trailer slot takes the cover's place */
+.cc .h-img .media-slot { border-radius: 22px; }
+
+/* Pillars: 7 cards */
+.cc .cc-pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 48px 0 0; }
+.cc .cc-pillars .step .letter { font-size: 56px; }
+.cc .cc-pillars .step .mod { display: block; margin: 0 0 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+.cc .cc-pillars .step.bookend { background: rgba(242,199,92,0.08); border-color: rgba(242,199,92,0.3); }
+.cc .cc-pillars .step.bookend .letter { font-size: 22px; line-height: 1.2; letter-spacing: 0.02em; }
+
+/* Inside a module */
+.cc .peek { display: grid; grid-template-columns: 1.25fr 1fr; gap: 28px; align-items: center; margin: 44px 0 0; }
+.cc .peek .audios { display: grid; gap: 14px; }
+.cc .peek-list { list-style: none; margin: 34px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.cc .peek-list li { padding: 18px 16px; border-radius: 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); font-size: 15px; line-height: 1.45; }
+.cc .peek-list strong { display: block; color: var(--gold); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+
+/* Research */
+.cc .science { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0 0; }
+.cc .science .sci { background: #fff; border: 1px solid #EAE3D2; border-radius: 20px; padding: 26px 24px; }
+.cc .science h3 { font-size: 20px; color: var(--navy); margin-bottom: 8px; }
+.cc .science p { margin: 0; font-size: 16px; line-height: 1.5; color: #3A3A3F; }
+.cc .science .src { margin-top: 12px; font-size: 13px; color: #8A7A55; }
+
+/* Waitlist panel replaces the price box until the price is set */
+.cc .price-box .pb-price.tbd { font-size: 34px; }
+
+@media (max-width: 900px) {
+  .cc .cc-pillars { grid-template-columns: 1fr 1fr; }
+  .cc .peek { grid-template-columns: 1fr; }
+  .cc .peek-list { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .cc .cc-pillars, .cc .science, .cc .peek-list { grid-template-columns: 1fr; }
+  .cc .media-slot { border-radius: 16px; }
+  .cc .media-slot.video .play { top: 40%; width: 56px; height: 56px; margin: -28px 0 0 -28px; }
+  .cc .media-slot.video .slot-label { left: 14px; right: 14px; bottom: 12px; font-size: 13px; gap: 6px; }
+  .cc .media-slot .soon { font-size: 11px; padding: 4px 10px; }
+  .cc .media-slot.audio { padding: 18px; gap: 14px; }
+  .cc .media-slot.audio .play { flex-basis: 48px; width: 48px; height: 48px; }
+}
+
+/* Outcome cards (replaced the pillar grid: the framework isn't shown on the landing page) */
+.cc .cc-outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 48px 0 0; }
+.cc .cc-outcomes .step h3 { color: var(--gold); }
+@media (max-width: 900px) { .cc .cc-outcomes { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .cc .cc-outcomes { grid-template-columns: 1fr; } }
