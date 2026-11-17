@@ -31,8 +31,8 @@
         <p class="kicker">Guided audio + workbook</p>
         <h1>Your mind says yes. <span class="gold">Your body says no.</span></h1>
         <p class="sub">Find the limiting belief that's been stuck in your body, and clear it from there. In a single sitting, on your own.</p>
-        <a class="cta" href="https://link.fastpaydirect.com/payment-link/6afb64f521a48a3872d269da" target="_blank" rel="noopener">Get instant access <span class="cta-price">$297</span></a>
-        <p class="micro"><span>Instant access</span><span>Yours to keep</span><span>Founding price</span></p>
+        <span class="cta soon-cta" aria-disabled="true">Coming soon</span>
+        <p class="micro"><span>Founding price $297</span><span>Opening soon</span></p>
       </div>
     </div>
   </header>
@@ -123,11 +123,11 @@
           <div class="pb-left">
             <p class="pb-label">Founding price</p>
             <p class="pb-price">$297 <span>one payment</span></p>
-            <p class="pb-note">The price goes up to $497 after the founding round.</p>
+            <p class="pb-note">The founding price will be available at launch.</p>
           </div>
           <div class="pb-right">
-            <a class="cta" href="https://link.fastpaydirect.com/payment-link/6afb64f521a48a3872d269da" target="_blank" rel="noopener">Get instant access <span class="cta-price">$297</span></a>
-            <p class="pb-access">Login to the members' area arrives by email right after checkout.</p>
+            <span class="cta soon-cta" aria-disabled="true">Coming soon</span>
+            <p class="pb-access">The guided lessons are being recorded now.</p>
           </div>
         </div>
       </div>
@@ -170,7 +170,7 @@
         <details><summary>Do I write during the Clearing?</summary><p>No. The Clearing is eyes closed, start to finish, so nothing interrupts what's happening in your body. You write in the workbook afterwards.</p></details>
         <details><summary>What if the belief comes back?</summary><p>Some beliefs clear in one round. Deeper ones can take two or three. Your Day 1, 7 and 30 check-ins show you when to run it again.</p></details>
         <details><summary>Can I use it more than once?</summary><p>Yes. Run it on any belief, as often as you need.</p></details>
-        <details><summary>How do I get access?</summary><p>Right after checkout, you get an email with your login to the members' area. Your audios and downloads are waiting there.</p></details>
+        <details><summary>When can I get it?</summary><p>The CLEAR Method is coming soon. The guided lessons are being recorded now. Once it opens, you'll get instant access to the members' area right after checkout.</p></details>
         <details><summary>Is this therapy?</summary><p>No. The CLEAR Method&trade; is a coaching practice, not therapy or medical treatment. If a belief is tied to abuse, violence or trauma, please work with a licensed professional first.</p></details>
       </div>
     </div>
@@ -181,28 +181,14 @@
     <div class="wrap">
       <h2>Your mind already said yes. <span class="gold">Let your body say yes too.</span></h2>
       <p class="lead">Five guided lessons, the Clearing and the workbook. One sitting. Yours to keep.</p>
-      <a class="cta" href="https://link.fastpaydirect.com/payment-link/6afb64f521a48a3872d269da" target="_blank" rel="noopener">Get instant access <span class="cta-price">$297</span></a>
-      <p class="micro"><span>Founding price</span><span>Goes to $497 after the founding round</span></p>
+      <span class="cta soon-cta" aria-disabled="true">Coming soon</span>
+      <p class="micro"><span>Founding price $297</span><span>Opening soon</span></p>
       <p class="fine">A coaching practice, not therapy. Not designed for abuse, violence, or trauma.</p>
     </div>
   </section>
 
-  <div class="buybar" id="buybar" aria-hidden="true">
-    <div class="bb-price">$297<small>Founding price</small></div>
-    <a class="cta" href="https://link.fastpaydirect.com/payment-link/6afb64f521a48a3872d269da" target="_blank" rel="noopener" tabindex="-1">Get instant access</a>
-  </div>
 
   <footer class="foot">Business Manifesting © 2026 &nbsp;·&nbsp; <a href="https://roladiab.com/privacy" target="_blank" rel="noopener">Privacy</a> &nbsp;·&nbsp; <a href="https://roladiab.com/terms" target="_blank" rel="noopener">Terms</a></footer>
   <script src="/nav.js?v=1"></script>
-  <script>
-    (function () {
-      var bar = document.getElementById('buybar'), hero = document.getElementById('top'), offer = document.getElementById('offer');
-      if (!bar || !('IntersectionObserver' in window)) return;
-      var heroOut = false, offerIn = false;
-      function update() { bar.classList.toggle('show', heroOut && !offerIn); }
-      new IntersectionObserver(function (e) { heroOut = !e[0].isIntersecting; update(); }).observe(hero);
-      new IntersectionObserver(function (e) { offerIn = e[0].isIntersecting; update(); }, { threshold: 0.2 }).observe(offer);
-    })();
-  </script>
 </body>
 </html>
