@@ -1,9 +1,12 @@
-// Waitlist forms. Each .signup block carries data-list ("summit" or "circle"). Each signup:
+// Waitlist forms. Each .signup block carries data-list ("summit", "circle", "live"...). Each signup:
 // (1) lead alert email to Rola via the convictioncode.com email system (Lovable Cloud),
-// (2) GHL, once GHL_WEBHOOK_URL is set or the block carries data-webhook (a GHL Inbound Webhook workflow URL).
+// (2) GHL, only for lists that have their own webhook in GHL_WEBHOOKS (or a data-webhook on the block).
+//     Lists without an entry send nothing to GHL, so one list never flows into another list's workflow.
 (function () {
   var CONFIG = {
-    GHL_WEBHOOK_URL: "",
+    GHL_WEBHOOKS: {
+      live: "https://services.leadconnectorhq.com/hooks/lEqWwjtkibEh35SiVbMP/webhook-trigger/86ca512e-2e25-410b-8dcc-5c5e474720f4"
+    },
     EMAIL_FUNCTION_URL: "https://zyonpiskcpoiwhkgxdjp.supabase.co/functions/v1/send-transactional-email",
     PUBLIC_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp5b25waXNrY3BvaXdoa2d4ZGpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2NTM0MDgsImV4cCI6MjA4NDIyOTQwOH0.2AdGgTflahS0Y_jO66BmH4b8n5PwDp-0wtQPtFPh_BI"
   };
@@ -20,7 +23,7 @@
         templateName: "application-submission",
         templateData: {
           name: v.first_name + " " + v.last_name, email: v.email, phone: "", role: "Not given",
-          message: list.toUpperCase() + " WAITLIST signup from businessmanifesting.com" + location.pathname + ". Source: " + source + "."
+          message: (list === "live" ? "LIVE LIST" : list.toUpperCase() + " WAITLIST") + " signup from businessmanifesting.com" + location.pathname + ". Source: " + source + "."
         }
       }),
       keepalive: true
@@ -53,7 +56,7 @@
     var form = block.querySelector("form");
     var errorEl = block.querySelector(".error");
     var list = block.getAttribute("data-list");
-    var hook = block.getAttribute("data-webhook") || CONFIG.GHL_WEBHOOK_URL;
+    var hook = block.getAttribute("data-webhook") || CONFIG.GHL_WEBHOOKS[list] || "";
 
     var trap = document.createElement("input");
     trap.type = "text"; trap.name = "website"; trap.tabIndex = -1; trap.autocomplete = "off";
