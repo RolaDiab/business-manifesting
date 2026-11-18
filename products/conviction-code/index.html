@@ -47,6 +47,21 @@
     </div>
   </header>
 
+  <!-- 1b. Proof right under the hero: Kash video (private coaching) -->
+  <section class="band dark story">
+    <div class="wrap">
+      <figure class="t-video">
+        <video id="kash-video" tabindex="0" role="button" src="/video/kash-testimonial.mp4" poster="/video/kash-cover.jpg" playsinline preload="none" width="576" height="1024" aria-label="Video testimonial from Kash Ruparelia"></video>
+        <div class="t-video-copy">
+          <span class="q-mark">&ldquo;</span>
+          <blockquote>Rola helps you see the unseen and strategize for the seen. She finds what's blocking you energetically... and she clears it.</blockquote>
+          <p class="who">Kash Ruparelia, Founder and CEO, RISEVOICE. From private coaching with Rola.</p>
+          <p class="vary">Individual results vary.</p>
+        </div>
+      </figure>
+    </div>
+  </section>
+
   <!-- 2. The problem, in their words -->
   <section class="band ivory">
     <div class="wrap pain-grid">
@@ -250,5 +265,6 @@
       stops.forEach(function (el, i) { new IntersectionObserver(function (e) { stopIn[i] = e[0].isIntersecting; update(); }, { threshold: 0.2 }).observe(el); });
     })();
   </script>
+  <script>(function(){var v=document.getElementById("kash-video");if(!v)return;function go(){if(!v.controls){v.removeAttribute("role");v.controls=true;v.play();}}v.addEventListener("click",go);v.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});})();</script>
 </body>
 </html>
