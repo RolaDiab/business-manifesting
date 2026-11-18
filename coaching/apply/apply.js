@@ -76,7 +76,7 @@
         '<fieldset><legend>Business Manifesting Coaching is a private, premium engagement. If it\'s the right fit, are you ready to invest now?</legend>' + radios("invest", INVEST, v.invest) + '</fieldset>' +
         (error ? '<p class="error">' + esc(error) + '</p>' : "") +
         '<button type="submit">Submit my application</button>' +
-        '<p class="consent">We\'ll use your details only to reply to you. See our <a href="https://roladiab.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</p>' +
+        '<p class="consent">We\'ll use your details only to reply to you. See our <a href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</p>' +
         '<p class="apply-alt">Not ready yet? <a class="link" href="' + CONFIG.QUIZ_URL + '">Take the free Performance Profile</a></p>' +
       '</form></section>';
   }
