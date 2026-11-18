@@ -934,3 +934,7 @@ html, body { overflow-x: clip; }
   .nav-links .nav-sub a { font-size: 16px; font-weight: 500; padding: 10px 0 10px 18px; border-top: 0; border-radius: 0; }
   .nav-sub a:hover { background: none; }
 }
+
+/* Teams page: two formats */
+.cards-2 { grid-template-columns: repeat(2, 1fr); max-width: 760px; }
+@media (max-width: 760px) { .cards-2 { grid-template-columns: 1fr; } }
