@@ -13,7 +13,7 @@
   <meta name="theme-color" content="#120B18">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css?v=112">
-  <link rel="stylesheet" href="/products/sales.css?v=2">
+  <link rel="stylesheet" href="/products/sales.css?v=3">
 </head>
 <body class="dark-page sp">
   <nav class="nav"><div class="nav-inner">
@@ -85,10 +85,15 @@
 
   <section class="band dark story">
     <div class="wrap">
-      <span class="q-mark">&ldquo;</span>
-      <blockquote>Logically I knew, but emotionally I was just wrecked... I did it, and I can literally pinpoint my healing to that moment.</blockquote>
-      <p class="who">Juliet, client</p>
-      <p class="vary">Individual results vary.</p>
+      <figure class="t-video">
+        <video id="juliet-video" tabindex="0" role="button" src="/video/juliet-testimonial.mp4" poster="/video/juliet-cover.jpg" playsinline preload="none" width="720" height="1280" aria-label="Video testimonial from Juliet"></video>
+        <div class="t-video-copy">
+          <span class="q-mark">&ldquo;</span>
+          <blockquote>Logically I knew, but emotionally I was just wrecked... I did it, and I can literally pinpoint my healing to that moment.</blockquote>
+          <p class="who">Juliet, client</p>
+          <p class="vary">Individual results vary.</p>
+        </div>
+      </figure>
     </div>
   </section>
 
@@ -185,5 +190,6 @@
       new IntersectionObserver(function (e) { offerIn = e[0].isIntersecting; update(); }, { threshold: 0.2 }).observe(offer);
     })();
   </script>
+  <script>(function(){var v=document.getElementById("juliet-video");if(!v)return;function go(){if(!v.controls){v.removeAttribute("role");v.controls=true;v.play();}}v.addEventListener("click",go);v.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});})();</script>
 </body>
 </html>
