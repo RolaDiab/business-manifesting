@@ -13,7 +13,7 @@
   <meta name="theme-color" content="#0A1A38">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css?v=112">
-  <link rel="stylesheet" href="/products/clear-method/page.css?v=1">
+  <link rel="stylesheet" href="/products/clear-method/page.css?v=2">
 </head>
 <body class="dark-page clr">
   <nav class="nav"><div class="nav-inner">
@@ -31,7 +31,7 @@
         <p class="kicker">Guided audio + workbook</p>
         <h1>Your mind says yes. <span class="gold">Your body says no.</span></h1>
         <p class="sub">Clear the limiting beliefs blocking success. Find where each one sits in your body, and clear it from there. On your own, one sitting at a time.</p>
-        <span class="cta soon-cta" aria-disabled="true">Coming soon</span>
+        <a class="cta" href="#remind">Remind me when it opens</a>
         <p class="micro"><span>Founding price $297</span><span>Opening soon</span></p>
       </div>
     </div>
@@ -126,7 +126,7 @@
             <p class="pb-note">The founding price will be available at launch.</p>
           </div>
           <div class="pb-right">
-            <span class="cta soon-cta" aria-disabled="true">Coming soon</span>
+            <a class="cta" href="#remind">Remind me when it opens</a>
             <p class="pb-access">The guided lessons are being recorded now.</p>
           </div>
         </div>
@@ -181,7 +181,19 @@
     <div class="wrap">
       <h2>Your mind already said yes. <span class="gold">Let your body say yes too.</span></h2>
       <p class="lead">Five guided lessons, the Clearing and the workbook. One sitting. Yours to keep.</p>
-      <span class="cta soon-cta" aria-disabled="true">Coming soon</span>
+      <div class="signup" data-list="clear" id="remind">
+        <form novalidate>
+          <div class="line">
+            <input name="first_name" type="text" placeholder="First name" autocomplete="given-name" aria-label="First name" required>
+            <input name="last_name" type="text" placeholder="Last name" autocomplete="family-name" aria-label="Last name" required>
+            <input name="email" type="email" placeholder="Email" autocomplete="email" aria-label="Email" required>
+            <button class="cta" type="submit">Remind me</button>
+          </div>
+          <label class="consent"><input name="consent" type="checkbox" required> Email me when the CLEAR Method opens, plus occasional insights from Business Manifesting. Unsubscribe anytime. <a href="https://roladiab.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></label>
+          <p class="error" role="alert"></p>
+        </form>
+        <div class="done" hidden><p class="done-line">You're on the list, <span class="done-name"></span>. We'll email you the moment CLEAR opens.</p></div>
+      </div>
       <p class="micro"><span>Founding price $297</span><span>Opening soon</span></p>
       <p class="fine">A coaching practice, not therapy. Not designed for abuse, violence, or trauma.</p>
     </div>
@@ -190,5 +202,6 @@
 
   <footer class="foot">Business Manifesting © 2026 &nbsp;·&nbsp; <a href="https://roladiab.com/privacy" target="_blank" rel="noopener">Privacy</a> &nbsp;·&nbsp; <a href="https://roladiab.com/terms" target="_blank" rel="noopener">Terms</a></footer>
   <script src="/nav.js?v=1"></script>
+  <script src="/site.js?v=35"></script>
 </body>
 </html>

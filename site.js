@@ -1,6 +1,6 @@
 // Waitlist forms. Each .signup block carries data-list ("summit" or "circle"). Each signup:
 // (1) lead alert email to Rola via the convictioncode.com email system (Lovable Cloud),
-// (2) GHL, once GHL_WEBHOOK_URL is set (needs a GHL workflow with an Inbound Webhook trigger).
+// (2) GHL, once GHL_WEBHOOK_URL is set or the block carries data-webhook (a GHL Inbound Webhook workflow URL).
 (function () {
   var CONFIG = {
     GHL_WEBHOOK_URL: "",
@@ -11,7 +11,7 @@
   var params = new URLSearchParams(location.search);
   var source = params.get("utm_source") || (document.referrer ? new URL(document.referrer).hostname : "direct");
 
-  function send(v, list) {
+  function send(v, list, hook) {
     var jobs = [];
     jobs.push(fetch(CONFIG.EMAIL_FUNCTION_URL, {
       method: "POST",
@@ -26,8 +26,8 @@
       keepalive: true
     }).catch(function () {}));
 
-    if (CONFIG.GHL_WEBHOOK_URL) {
-      jobs.push(fetch(CONFIG.GHL_WEBHOOK_URL, {
+    if (hook) {
+      jobs.push(fetch(hook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ first_name: v.first_name, last_name: v.last_name, email: v.email, list: list, utm_source: source, tags: list + "-waitlist" }),
@@ -53,6 +53,7 @@
     var form = block.querySelector("form");
     var errorEl = block.querySelector(".error");
     var list = block.getAttribute("data-list");
+    var hook = block.getAttribute("data-webhook") || CONFIG.GHL_WEBHOOK_URL;
 
     var trap = document.createElement("input");
     trap.type = "text"; trap.name = "website"; trap.tabIndex = -1; trap.autocomplete = "off";
@@ -72,7 +73,7 @@
       var btn = form.querySelector("button");
       btn.disabled = true;
       btn.textContent = "Saving your spot...";
-      (looksLikeBot(v, form) ? Promise.resolve() : send(v, list)).then(function () {
+      (looksLikeBot(v, form) ? Promise.resolve() : send(v, list, hook)).then(function () {
         block.querySelector(".done-name").textContent = v.first_name;
         form.hidden = true;
         block.querySelector(".done").hidden = false;
