@@ -7,6 +7,9 @@
     EMAIL_FUNCTION_URL: "https://zyonpiskcpoiwhkgxdjp.supabase.co/functions/v1/send-transactional-email",
     EVENTS_URL: "https://zyonpiskcpoiwhkgxdjp.supabase.co/rest/v1/quiz_events",
     PUBLIC_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp5b25waXNrY3BvaXdoa2d4ZGpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2NTM0MDgsImV4cCI6MjA4NDIyOTQwOH0.2AdGgTflahS0Y_jO66BmH4b8n5PwDp-0wtQPtFPh_BI",
+    // GHL "Coaching Applications" workflow (same one the quiz apply form uses): saves the contact,
+    // Application Answers, and tags applied + apply-qualified or apply-not-yet.
+    GHL_APPLY_WEBHOOK_URL: "https://services.leadconnectorhq.com/hooks/lEqWwjtkibEh35SiVbMP/webhook-trigger/633d54ae-a15e-4aad-8d4c-8012b2ca2626",
     BOOKING_URL: "https://api.leadconnectorhq.com/widget/booking/T5FW8VnbAbvoi3C1zAuA",
     QUIZ_URL: "https://quiz.convictioncode.com/?utm_source=businessmanifesting.com"
   };
@@ -105,6 +108,33 @@
     }).catch(function () {});
   }
 
+  // Same plain-text format as the quiz's notes.js, so the booking invite reads the same either way.
+  // Only the applicant's own answers: they see the invite too.
+  function sendToGhl(v, qualified) {
+    if (!CONFIG.GHL_APPLY_WEBHOOK_URL) return Promise.resolve();
+    var lines = ["COACHING APPLICATION", "",
+      "Interested in: " + v.type,
+      "Role and company: " + v.company,
+      "Role: " + (v.role === "Other" ? "Other: " + v.role_other : v.role),
+      "Wants to start: " + v.start,
+      "Income or revenue: " + v.income,
+      "Ready to invest: " + v.invest,
+      "Open to energy clearing: " + v.energy,
+      "", "Top challenges:"];
+    v.challenges.filter(Boolean).forEach(function (c, i) { lines.push((i + 1) + ". " + c); });
+    lines.push("", "90-day goal:", v.goal);
+    return fetch(CONFIG.GHL_APPLY_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        first_name: v.first_name, last_name: v.last_name, email: v.email, phone: v.phone, company_name: v.company,
+        qualified: qualified ? "yes" : "no", application_summary: lines.join("\n"), result_url: "",
+        tags: "applied," + (qualified ? "apply-qualified" : "apply-not-yet")
+      }),
+      keepalive: true
+    }).catch(function () {});
+  }
+
   function renderQualified(v) {
     root.innerHTML =
       '<header class="hero hero-short hero-dark">' +
@@ -127,8 +157,8 @@
         '<p class="lede">Based on your answers, a strategy session isn\'t the right next step just yet. We read every application, and you\'ll keep getting insights by email.</p>' +
       '</header>' +
       '<section class="apply-wrap apply-center">' +
-        '<p>In the meantime, find your biggest growth block with the free Performance Profile.</p>' +
-        '<a class="btn" href="' + CONFIG.QUIZ_URL + '">Take the free Performance Profile</a>' +
+        '<p>Group coaching with Rola opens soon: virtual, alongside other founders and leaders. Join the waitlist to hear first.</p>' +
+        '<a class="btn" href="/coaching/group/?utm_source=apply">Join the group coaching waitlist</a>' +
         '<p class="apply-alt">Follow along on <a class="link" href="https://www.instagram.com/rolaspeaks/" target="_blank" rel="noopener">Instagram</a> and <a class="link" href="https://www.youtube.com/@Rolaspeaks" target="_blank" rel="noopener">YouTube</a></p>' +
       '</section>';
     window.scrollTo(0, 0);
@@ -183,7 +213,7 @@
     var btn = f.querySelector("button[type=submit]");
     btn.disabled = true;
     btn.textContent = "Submitting...";
-    Promise.race([sendApplication(v, qualified), new Promise(function (r) { setTimeout(r, 4000); })]).then(function () {
+    Promise.race([Promise.all([sendApplication(v, qualified), sendToGhl(v, qualified)]), new Promise(function (r) { setTimeout(r, 4000); })]).then(function () {
       if (qualified) renderQualified(v); else renderNotYet(v);
     });
   });
