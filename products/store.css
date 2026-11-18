@@ -12,7 +12,7 @@
 .sc-promise { margin: 0 0 22px; font-size: 16px; line-height: 1.5; color: #3A3A3F; }
 .sc-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid var(--line); }
 .sc-price { font-family: "Archivo", "Inter", sans-serif; font-weight: 900; font-size: 26px; color: var(--navy); }
-.sc-go { font-size: 15px; font-weight: 700; color: var(--navy); background: #F2C75C; padding: 10px 16px; border-radius: 980px; white-space: nowrap; }
+.sc-go { margin-left: auto; font-size: 15px; font-weight: 700; color: var(--navy); background: #F2C75C; padding: 10px 16px; border-radius: 980px; white-space: nowrap; }
 .store-card:hover .sc-go { background: #F6D47A; }
 .store-guide { max-width: 860px; margin: 72px auto 0; text-align: center; }
 .dark-page .store-guide h2 { font-family: "Archivo", "Inter", sans-serif; font-weight: 900; font-stretch: 112%; font-variation-settings: "wdth" 112; letter-spacing: -0.02em; font-size: clamp(28px, 3.6vw, 40px); color: #fff; margin: 0 0 24px; }
