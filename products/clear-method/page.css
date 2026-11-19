@@ -175,3 +175,8 @@
 /* Coming soon state */
 .clr .soon-cta { cursor: default; animation: none; background: linear-gradient(100deg, #D8962A, #F2C75C); }
 .clr .soon-cta:hover { transform: none; }
+
+/* Single solid gold, no gradients or purple, 2026-11-19 */
+.clr .gold, .clr .mf { background: none; color: var(--gold); -webkit-text-fill-color: var(--gold); animation: none; }
+.clr .cta, .clr .soon-cta { background: var(--gold); animation: none; }
+.clr .signs li::before { background: var(--gold); box-shadow: 0 0 0 5px rgba(242,199,92,0.22); }
