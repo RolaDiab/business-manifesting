@@ -33,7 +33,7 @@
       jobs.push(fetch(hook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ first_name: v.first_name, last_name: v.last_name, email: v.email, list: list, utm_source: source, tags: list + "-waitlist" }),
+        body: JSON.stringify({ first_name: v.first_name, last_name: v.last_name, email: v.email, list: list, utm_source: source, tags: list === "live" ? "manifesting-live" : list + "-waitlist" }),
         keepalive: true
       }).catch(function () {}));
     }

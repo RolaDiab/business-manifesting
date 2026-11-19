@@ -938,3 +938,6 @@ html, body { overflow-x: clip; }
 /* Teams page: two formats */
 .cards-2 { grid-template-columns: repeat(2, 1fr); max-width: 760px; }
 @media (max-width: 760px) { .cards-2 { grid-template-columns: 1fr; } }
+
+/* Live Events menu: "Coming soon" note, 2026-11-19 */
+.nav-sub .soon { margin-left: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #F2C75C; opacity: 0.85; }
