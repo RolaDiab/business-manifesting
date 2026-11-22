@@ -45,8 +45,10 @@
   function looksLikeBot(v, form) {
     if (form.website && form.website.value) return true;                 // hidden trap field filled
     if (Date.now() - loadedAt < 3000) return true;                        // submitted inhumanly fast
-    var names = (v.first_name + " " + v.last_name).split(/\s+/);
-    if (names.some(function (w) { return (w.slice(1).match(/[A-Z]/g) || []).length >= 2; })) return true; // "OaVUampAcyq"
+    // Split on anything but letters, so "O'Brien-LeBlanc" is checked as O, Brien, LeBlanc.
+    // Random case mix only: "McDonald" and ALL-CAPS names pass, "OaVUampAcyq" does not.
+    var names = (v.first_name + " " + v.last_name).split(/[^A-Za-z]+/);
+    if (names.some(function (w) { return (w.slice(1).match(/[A-Z]/g) || []).length >= 3 && (w.match(/[a-z]/g) || []).length >= 3; })) return true;
     var parts = v.email.toLowerCase().split("@");
     if (/^(gmail|googlemail)\.com$/.test(parts[1]) && (parts[0].match(/\./g) || []).length >= 3) return true; // "si.z.i.q.eyu76@gmail.com"
     return false;
