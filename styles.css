@@ -942,3 +942,12 @@ html, body { overflow-x: clip; }
 .nav-sub .soon { margin-left: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #F2C75C; opacity: 0.85; }
 /* Nav "Coming soon": plain gold text, no pill (dark-page pill rule made it unreadable), 2026-11-20 */
 .nav .nav-sub .soon { background: none; padding: 0; border-radius: 0; color: #F2C75C; vertical-align: 0; }
+
+/* Bigger tap targets on phones (friction audit, 2026-11-22): footer links, logo link, inline offer links. */
+/* Padding grows the tap area; the matching negative margin keeps the layout where it was. */
+.foot a { display: inline-block; padding: 10px 4px; margin: -10px -4px; }
+.nav .mark { display: inline-block; padding: 4px 0; margin: -4px 0; }
+a.link[data-interest] { display: inline-block; padding: 8px 0; margin: -8px 0; }
+/* <picture> wrappers (WebP with JPEG/PNG fallback) must not change layout. */
+picture { display: block; line-height: 0; }
+picture > img { vertical-align: top; }

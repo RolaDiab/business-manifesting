@@ -234,6 +234,7 @@
     if (looksLikeBot(v, f)) { track("apply_blocked"); renderNotYet(v); return; }
     track("apply_submit");
     if (qualified) track("apply_qualified");
+    if (window.bmTrack) window.bmTrack("Coaching Application", { qualified: qualified ? "yes" : "no" });
     var btn = f.querySelector("button[type=submit]");
     btn.disabled = true;
     btn.textContent = "Submitting...";
