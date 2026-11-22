@@ -86,9 +86,9 @@
           '<label>Email<input name="email" type="email" autocomplete="email" maxlength="255" value="' + esc(v.email || "") + '"></label>' +
           '<label>Phone or WhatsApp<input name="phone" type="tel" autocomplete="tel" maxlength="40" value="' + esc(v.phone || "") + '"></label>' +
         '</div>' +
-        '<label>Your role and company<input name="company" maxlength="150" placeholder="For example: CEO, Acme Group" value="' + esc(v.company || "") + '"></label>' +
+        '<label>Your role and company<input name="company" autocomplete="organization" maxlength="150" placeholder="For example: CEO, Acme Group" value="' + esc(v.company || "") + '"></label>' +
         '<fieldset><legend>Which best describes your role?</legend>' + radios("role", ROLE, v.role) +
-          '<input class="other-input" name="role_other" maxlength="100" placeholder="Tell us your role" aria-label="Your role"' + (v.role === "Other" ? "" : " hidden") + ' value="' + esc(v.role_other || "") + '">' +
+          '<input class="other-input" name="role_other" autocomplete="organization-title" maxlength="100" placeholder="Tell us your role" aria-label="Your role"' + (v.role === "Other" ? "" : " hidden") + ' value="' + esc(v.role_other || "") + '">' +
         '</fieldset>' +
         '<fieldset><legend>What\'s going on for you right now? Share your top 3 challenges, with as much detail as you can.</legend>' +
           [1, 2, 3].map(function (n) { return '<textarea name="c' + n + '" rows="3" maxlength="1000" aria-label="Challenge ' + n + '" placeholder="' + n + '.' + (n === 1 ? ' For example: I second-guess big decisions, so I delay them for weeks and my team waits on me.' : '') + '">' + esc((v.challenges || [])[n - 1] || "") + '</textarea>'; }).join("") +
