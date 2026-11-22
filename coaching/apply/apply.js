@@ -177,11 +177,11 @@
       '<header class="hero hero-short hero-dark">' +
         '<p class="eyebrow">Application received</p>' +
         '<h1>Thank you, <span class="gold">' + esc(v.first_name) + '.</span></h1>' +
-        '<p class="lede">Based on your answers, a strategy session isn\'t the right next step just yet. We read every application, and you\'ll keep getting insights by email.</p>' +
+        '<p class="lede">Based on your answers, a private strategy call isn\'t the right next step just yet. I read every application, and the door stays open.</p>' +
       '</header>' +
       '<section class="apply-wrap apply-center">' +
-        '<p>Group coaching with Rola opens soon: virtual, alongside other founders and leaders. Join the waitlist to hear first.</p>' +
-        '<a class="btn" href="/coaching/group/?utm_source=apply">Join the group coaching waitlist</a>' +
+        '<p>Until then, start with a guided practice you can use today. Think of it as grounding yourself before you build.</p>' +
+        '<a class="btn" href="/products/?utm_source=apply-next-step">Explore the digital products</a>' +
         '<p class="apply-alt">Follow along on <a class="link" href="https://www.instagram.com/rolaspeaks/" target="_blank" rel="noopener">Instagram</a> and <a class="link" href="https://www.youtube.com/@Rolaspeaks" target="_blank" rel="noopener">YouTube</a></p>' +
       '</section>';
     window.scrollTo(0, 0);
