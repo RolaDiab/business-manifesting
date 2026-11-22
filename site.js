@@ -78,7 +78,7 @@
       var btn = form.querySelector("button");
       btn.disabled = true;
       btn.textContent = "Saving your spot...";
-      (looksLikeBot(v, form) ? Promise.resolve() : send(v, list, hook)).then(function () {
+      (looksLikeBot(v, form) ? Promise.resolve() : (window.bmTrack && window.bmTrack("Waitlist Signup", { list: list }), send(v, list, hook))).then(function () {
         block.querySelector(".done-name").textContent = v.first_name;
         form.hidden = true;
         block.querySelector(".done").hidden = false;

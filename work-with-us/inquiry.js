@@ -33,6 +33,7 @@
     var btn = form.querySelector("button");
     btn.disabled = true;
     btn.textContent = "Sending...";
+    if (window.bmTrack) window.bmTrack("Team Inquiry", { interest: v.interest });
     var send = fetch(CONFIG.EMAIL_FUNCTION_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json", "apikey": CONFIG.PUBLIC_KEY, "Authorization": "Bearer " + CONFIG.PUBLIC_KEY },
