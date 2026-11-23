@@ -180,3 +180,12 @@
 .clr .gold, .clr .mf { background: none; color: var(--gold); -webkit-text-fill-color: var(--gold); animation: none; }
 .clr .cta, .clr .soon-cta { background: var(--gold); animation: none; }
 .clr .signs li::before { background: var(--gold); box-shadow: 0 0 0 5px rgba(242,199,92,0.22); }
+
+/* Discover bonus tile */
+.clr .bonus-tile { display: flex; gap: 18px; align-items: flex-start; margin: 16px 0 0; padding: 24px 26px; border-radius: 20px; background: #FFFDF6; border: 1.5px solid #E2C46F; }
+.clr .bonus-tile .ico { flex: none; width: 46px; height: 46px; border-radius: 14px; background: var(--navy); display: grid; place-items: center; }
+.clr .bonus-tile .ico svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.clr .bonus-tile .bonus-tag { margin: 0 0 4px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #9A7B35; }
+.clr .bonus-tile h3 { font-size: 20px; color: var(--navy); margin: 0 0 6px; letter-spacing: -0.015em; }
+.clr .bonus-tile p { margin: 0; font-size: 15px; line-height: 1.5; color: #55555A; }
+@media (max-width: 640px) { .clr .bonus-tile { flex-direction: column; padding: 22px 20px; } }
