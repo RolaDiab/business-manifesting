@@ -5,7 +5,12 @@
 (function () {
   var CONFIG = {
     GHL_WEBHOOKS: {
-      live: "https://services.leadconnectorhq.com/hooks/lEqWwjtkibEh35SiVbMP/webhook-trigger/dc7d083d-9973-4ae2-9729-8179e7d9ff19"
+      live: "https://services.leadconnectorhq.com/hooks/lEqWwjtkibEh35SiVbMP/webhook-trigger/dc7d083d-9973-4ae2-9729-8179e7d9ff19",
+      // GHL workflows "Summit / Certification / Conviction Code Waitlist (website)": create the contact
+      // and tag it summit-waitlist, certification-waitlist or conviction-code-waitlist. Added 2026-11-24.
+      summit: "https://services.leadconnectorhq.com/hooks/lEqWwjtkibEh35SiVbMP/webhook-trigger/IiSaMJXdkUMH7yfxpHHC",
+      certification: "https://services.leadconnectorhq.com/hooks/lEqWwjtkibEh35SiVbMP/webhook-trigger/r9iv16c7F3WiXc5kL03S",
+      "conviction-code": "https://services.leadconnectorhq.com/hooks/lEqWwjtkibEh35SiVbMP/webhook-trigger/JwCiLPwT6DBNWZeC9Oh8"
     },
     EMAIL_FUNCTION_URL: "https://zyonpiskcpoiwhkgxdjp.supabase.co/functions/v1/send-transactional-email",
     PUBLIC_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp5b25waXNrY3BvaXdoa2d4ZGpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2NTM0MDgsImV4cCI6MjA4NDIyOTQwOH0.2AdGgTflahS0Y_jO66BmH4b8n5PwDp-0wtQPtFPh_BI"

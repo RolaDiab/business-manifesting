@@ -1,6 +1,8 @@
-// Work With Us inquiry form. Emails each inquiry to Rola through the convictioncode.com email system.
+// Work With Us inquiry form. Emails each inquiry to Rola through the convictioncode.com email system,
+// and creates the contact in GHL (workflow "Work With Us Inquiry (website)", tag work-with-us-inquiry).
 (function () {
   var CONFIG = {
+    GHL_WEBHOOK_URL: "https://services.leadconnectorhq.com/hooks/lEqWwjtkibEh35SiVbMP/webhook-trigger/1YN0pbvrAtnWNoZeh3Go",
     EMAIL_FUNCTION_URL: "https://zyonpiskcpoiwhkgxdjp.supabase.co/functions/v1/send-transactional-email",
     PUBLIC_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp5b25waXNrY3BvaXdoa2d4ZGpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2NTM0MDgsImV4cCI6MjA4NDIyOTQwOH0.2AdGgTflahS0Y_jO66BmH4b8n5PwDp-0wtQPtFPh_BI"
   };
@@ -45,7 +47,17 @@
       }),
       keepalive: true
     }).catch(function () {});
-    Promise.race([send, new Promise(function (r) { setTimeout(r, 4000); })]).then(function () {
+    var toGhl = fetch(CONFIG.GHL_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        first_name: v.first_name, last_name: v.last_name, email: v.email, company_name: v.company,
+        interest: v.interest, message: v.message, source: "businessmanifesting.com/work-with-us",
+        tags: "work-with-us-inquiry"
+      }),
+      keepalive: true
+    }).catch(function () {});
+    Promise.race([Promise.all([send, toGhl]), new Promise(function (r) { setTimeout(r, 4000); })]).then(function () {
       document.querySelector("#inquiry-done .done-name").textContent = v.first_name;
       form.hidden = true;
       document.getElementById("inquiry-done").hidden = false;
