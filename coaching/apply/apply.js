@@ -10,6 +10,9 @@
     // GHL "Coaching Applications" workflow (same one the quiz apply form uses): saves the contact,
     // Application Answers, and tags applied + apply-qualified or apply-not-yet.
     GHL_APPLY_WEBHOOK_URL: "https://services.leadconnectorhq.com/hooks/lEqWwjtkibEh35SiVbMP/webhook-trigger/633d54ae-a15e-4aad-8d4c-8012b2ca2626",
+    // GHL "Group Coaching Waitlist (website)" workflow, the same webhook /coaching/group/ uses.
+    // Group applicants go here instead of the 1:1 Discovery Call calendar.
+    GHL_GROUP_WEBHOOK_URL: "https://services.leadconnectorhq.com/hooks/lEqWwjtkibEh35SiVbMP/webhook-trigger/19128bc3-55c3-4f53-9a31-e54405792812",
     BOOKING_URL: "https://api.leadconnectorhq.com/widget/booking/T5FW8VnbAbvoi3C1zAuA",
     QUIZ_URL: "https://quiz.convictioncode.com/?utm_source=businessmanifesting.com"
   };
@@ -74,7 +77,7 @@
       '<header class="hero hero-short hero-dark">' +
         '<p class="eyebrow">Apply for coaching</p>' +
         '<h1>Let\'s clear the path to <span class="gold">your biggest wins.</span></h1>' +
-        '<p class="lede">1:1 or group coaching.<br>A few questions first, and if it\'s a fit, you\'ll book a 45-minute Performance Strategy Session right away.</p>' +
+        '<p class="lede">1:1 or group coaching.<br>A few questions first, and if it\'s a fit, you\'ll book a 45-minute Discovery Call right away.</p>' +
       '</header>' +
       '<section class="apply-wrap"><form id="app-form" class="apply-form" novalidate>' +
         '<fieldset><legend>Which coaching are you interested in?</legend>' + radios("type", TYPE, v.type) + '</fieldset>' +
@@ -107,10 +110,11 @@
     if (!formShownAt) formShownAt = Date.now();
   }
 
-  function sendApplication(v, qualified) {
+  function sendApplication(v, qualified, group) {
     var message =
       "COACHING APPLICATION from businessmanifesting.com\n" +
-      "QUALIFIED: " + (qualified ? "YES, shown the booking calendar" : "NO, not shown the calendar") + "\n" +
+      (group ? "GROUP COACHING: added to the group coaching waitlist (not shown the 1:1 calendar)\n" :
+        "QUALIFIED: " + (qualified ? "YES, shown the booking calendar" : "NO, not shown the calendar") + "\n") +
       "Interested in: " + v.type + "\n\n" +
       "Role: " + (v.role === "Other" ? "Other: " + v.role_other : v.role) + "\n" +
       "Wants to start: " + v.start + "\n" +
@@ -133,7 +137,9 @@
 
   // Same plain-text format as the quiz's notes.js, so the booking invite reads the same either way.
   // Only the applicant's own answers: they see the invite too.
-  function sendToGhl(v, qualified) {
+  // Group applicants: tagged apply-group, not apply-qualified/apply-not-yet, so the 1:1
+  // "Application reply" workflows (Discovery Call email / not-yet email) don't fire for them.
+  function sendToGhl(v, qualified, group) {
     if (!CONFIG.GHL_APPLY_WEBHOOK_URL) return Promise.resolve();
     var lines = ["COACHING APPLICATION", "",
       "Interested in: " + v.type,
@@ -151,11 +157,37 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         first_name: v.first_name, last_name: v.last_name, email: v.email, phone: v.phone, company_name: v.company,
-        qualified: qualified ? "yes" : "no", application_summary: lines.join("\n"), result_url: "",
-        tags: "applied," + (qualified ? "apply-qualified" : "apply-not-yet")
+        qualified: group ? "group" : (qualified ? "yes" : "no"), application_summary: lines.join("\n"), result_url: "",
+        tags: "applied," + (group ? "apply-group" : (qualified ? "apply-qualified" : "apply-not-yet"))
       }),
       keepalive: true
     }).catch(function () {});
+  }
+
+  function sendToGroupWaitlist(v) {
+    return fetch(CONFIG.GHL_GROUP_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        first_name: v.first_name, last_name: v.last_name, email: v.email, list: "group",
+        utm_source: "apply-form", tags: "group-waitlist"
+      }),
+      keepalive: true
+    }).catch(function () {});
+  }
+
+  function renderGroup(v) {
+    root.innerHTML =
+      '<header class="hero hero-short hero-dark">' +
+        '<p class="eyebrow">Application received</p>' +
+        '<h1>You\'re on the list, <span class="gold">' + esc(v.first_name) + '.</span></h1>' +
+        '<p class="lede">Group coaching opens soon. You\'re on the waitlist, so dates, format and seats come to you first.</p>' +
+      '</header>' +
+      '<section class="apply-wrap apply-center">' +
+        '<a class="btn" href="/coaching/group/?utm_source=apply-group">See group coaching</a>' +
+        '<p class="apply-alt">Want to start before then? Join <a class="link" href="/live/?utm_source=apply-group">Group Manifesting Live</a>, free every month.</p>' +
+      '</section>';
+    window.scrollTo(0, 0);
   }
 
   function renderQualified(v) {
@@ -163,10 +195,10 @@
       '<header class="hero hero-short hero-dark">' +
         '<p class="eyebrow">Application received</p>' +
         '<h1>You\'re a fit, <span class="gold">' + esc(v.first_name) + '.</span></h1>' +
-        '<p class="lede">Pick a time for your Performance Strategy Session. You\'ll get a confirmation by email.</p>' +
+        '<p class="lede">Pick a time for your Discovery Call. You\'ll get a confirmation by email.</p>' +
       '</header>' +
       '<section class="apply-wrap">' +
-        '<div class="calendar"><iframe src="' + CONFIG.BOOKING_URL + '" title="Book your Performance Strategy Session" loading="lazy"></iframe></div>' +
+        '<div class="calendar"><iframe src="' + CONFIG.BOOKING_URL + '" title="Book your Discovery Call with Rola Diab" loading="lazy"></iframe></div>' +
         '<p class="apply-alt">Calendar not loading? <a class="link" href="' + CONFIG.BOOKING_URL + '" target="_blank" rel="noopener">Open it in a new tab</a></p>' +
       '</section>';
     window.scrollTo(0, 0);
@@ -177,7 +209,7 @@
       '<header class="hero hero-short hero-dark">' +
         '<p class="eyebrow">Application received</p>' +
         '<h1>Thank you, <span class="gold">' + esc(v.first_name) + '.</span></h1>' +
-        '<p class="lede">Based on your answers, a private strategy call isn\'t the right next step just yet. I read every application, and the door stays open.</p>' +
+        '<p class="lede">Based on your answers, a private Discovery Call isn\'t the right next step just yet. I read every application, and the door stays open.</p>' +
       '</header>' +
       '<section class="apply-wrap apply-center">' +
         '<p>Until then, start with a guided practice you can use today. Think of it as grounding yourself before you build.</p>' +
@@ -231,14 +263,20 @@
 
     var earnsEnough = INCOME.indexOf(v.income) >= 1;
     var qualified = earnsEnough && v.start !== START[3] && v.invest !== INVEST[2];
+    var group = v.type === TYPE[1];
     if (looksLikeBot(v, f)) { track("apply_blocked"); renderNotYet(v); return; }
     track("apply_submit");
-    if (qualified) track("apply_qualified");
+    if (group) track("apply_group");
+    else if (qualified) track("apply_qualified");
     var btn = f.querySelector("button[type=submit]");
     btn.disabled = true;
     btn.textContent = "Submitting...";
-    Promise.race([Promise.all([sendApplication(v, qualified), sendToGhl(v, qualified)]), new Promise(function (r) { setTimeout(r, 4000); })]).then(function () {
-      if (qualified) renderQualified(v); else renderNotYet(v);
+    var jobs = [sendApplication(v, qualified, group), sendToGhl(v, qualified, group)];
+    if (group) jobs.push(sendToGroupWaitlist(v));
+    Promise.race([Promise.all(jobs), new Promise(function (r) { setTimeout(r, 4000); })]).then(function () {
+      if (group) renderGroup(v);
+      else if (qualified) renderQualified(v);
+      else renderNotYet(v);
     });
   });
 
