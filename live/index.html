@@ -130,7 +130,7 @@
 
   <section class="closing hero-dark">
     <h2>Your seat is waiting.</h2>
-    <p style="margin:0 0 26px;"><a class="btn btn-gold-cta" href="https://api.leadconnectorhq.com/widget/bookings/business-manifesting-live?utm_source=live-page">Save my seat for December 8</a></p>
+    <p style="margin:0 0 26px;" id="closing-book"><a class="btn btn-gold-cta" href="https://api.leadconnectorhq.com/widget/bookings/business-manifesting-live?utm_source=live-page">Save my seat for December 8</a></p>
     <div class="signup" data-list="live">
       <form novalidate>
         <div class="line">
@@ -150,6 +150,27 @@
   </section>
 
   <footer class="foot">Business Manifesting &copy; 2026 &nbsp;·&nbsp; <a href="/privacy/">Privacy</a> &nbsp;·&nbsp; <a href="/terms/">Terms</a></footer>
+  <script>
+  (function () {
+    // Swap the booking block for a "full" note when the Dec 8 session has no seats left.
+    // Fails open: on any error the Save my seat button stays.
+    var SESSION_END = Date.parse("2026-12-08T21:00:00+04:00");
+    var url = "https://backend.leadconnectorhq.com/calendars/cyjCw6Wr3d6KThhdRBmw/free-slots?startDate=" +
+      Date.parse("2026-12-07T00:00:00+04:00") + "&endDate=" + Date.parse("2026-12-09T00:00:00+04:00") + "&timezone=Asia/Dubai";
+    fetch(url).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+      if (!d) return;
+      var day = d["2026-12-08"];
+      if (day && day.slots && day.slots.length) return;
+      var box = document.getElementById("save-seat");
+      var past = Date.now() > SESSION_END;
+      if (box) box.innerHTML = '<p class="eyebrow">' + (past ? "Next session" : "December 8 is full") + '</p>' +
+        '<p class="ns-times" style="margin:10px 0 0;">' + (past ? "The next date is coming soon. Leave your email below and your invitation arrives first." :
+        "Every seat for this session is taken. Leave your email below and your invitation to the next session arrives first.") + '</p>';
+      var c = document.getElementById("closing-book");
+      if (c) c.style.display = "none";
+    }).catch(function () {});
+  })();
+  </script>
   <script src="/site.js?v=40"></script>
   <script src="/nav.js?v=1"></script>
 </body>
