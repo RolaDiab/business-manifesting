@@ -21,6 +21,10 @@
     .reg-box .line input[type=email] { grid-column: 1 / -1; }
     .reg-box .line button { grid-column: 1 / -1; }
     .reg-box .fine { margin: 14px 0 0; font-size: 13px; color: rgba(255,255,255,.65); }
+    .next-session { max-width: 640px; margin: 32px auto 0; border: 1px solid rgba(242,199,92,.55); border-radius: 18px; padding: 30px 24px 26px; background: rgba(13,39,72,.72); text-align: center; }
+    .next-session .ns-date { margin: 4px 0 6px; font-size: 26px; color: #fff; }
+    .next-session .ns-times { margin: 0 0 20px; font-size: 16px; color: rgba(255,255,255,.82); }
+    .next-session .fine { margin: 14px 0 0; font-size: 13px; color: rgba(255,255,255,.65); }
     .live-host { max-width: 900px; margin: 0 auto; padding: 96px 22px; display: flex; gap: 44px; align-items: center; flex-wrap: wrap; justify-content: center; }
     .live-host img { width: 280px; max-width: 100%; border-radius: 18px; border: 2px solid #E8C468; }
     .live-host .txt { flex: 1; min-width: 260px; }
@@ -47,9 +51,17 @@
     <p class="lede">Alone, your intention is a spark. With a group of people holding your vision, it becomes a fire. This is the power of group manifesting. One hour, live, together.</p>
     <p class="meta">Free &nbsp;·&nbsp; 60 minutes &nbsp;·&nbsp; Live only &nbsp;·&nbsp; Camera on</p>
 
+    <div class="next-session" id="save-seat">
+      <p class="eyebrow">Next session</p>
+      <p class="ns-date">Tuesday, December 8</p>
+      <p class="ns-times">8pm Dubai &nbsp;·&nbsp; 4pm London &nbsp;·&nbsp; 11am New York &nbsp;·&nbsp; 8am Los Angeles</p>
+      <a class="btn btn-gold-cta" href="https://api.leadconnectorhq.com/widget/bookings/business-manifesting-live?utm_source=live-page">Save my seat</a>
+      <p class="fine">Free. Seats are limited to 100. Your Zoom link and calendar invite arrive by email as soon as you book.</p>
+    </div>
+
     <div class="reg-box">
-      <p class="eyebrow">Receive the invitation</p>
-      <p>Each session is announced by email. Leave your name and email, and your personal invitation arrives before every gathering.</p>
+      <p class="eyebrow">Can't make this one?</p>
+      <p>Leave your name and email, and your invitation arrives before every future gathering.</p>
       <div class="signup" data-list="live">
         <form novalidate>
           <div class="line">
@@ -109,7 +121,7 @@
   <section class="live-faq">
     <h2>Before you join</h2>
     <h3>Is it really free?</h3><p>Yes. It's a gift to the community.</p>
-    <h3>How do I get the Zoom link?</h3><p>By email. Before each session you'll receive an invitation with the date, the time in your time zone, and your link.</p>
+    <h3>How do I get the Zoom link?</h3><p><a href="#save-seat">Save your seat</a> and your Zoom link arrives by email right away, with a calendar invite. If you join the invitation list instead, you'll receive an invitation before each future session.</p>
     <h3>Will there be a replay?</h3><p>No. Group Manifesting Live happens live only, so be there live. Sessions are recorded for the archive and are not shared.</p>
     <h3>Do I need my camera on?</h3><p>Yes. Camera on is part of the experience, because the connection in your group depends on it. Participants who are off camera will be removed so your group stays whole.</p>
     <h3>What happens after?</h3><p>You'll receive a short follow-up note. You're welcome to explore more, including the upcoming <a href="/summit/">Business Manifesting Summit</a> and the <a href="/products/">programs</a>.</p>
@@ -117,7 +129,8 @@
   </section>
 
   <section class="closing hero-dark">
-    <h2>Your invitation is waiting.</h2>
+    <h2>Your seat is waiting.</h2>
+    <p style="margin:0 0 26px;"><a class="btn btn-gold-cta" href="https://api.leadconnectorhq.com/widget/bookings/business-manifesting-live?utm_source=live-page">Save my seat for December 8</a></p>
     <div class="signup" data-list="live">
       <form novalidate>
         <div class="line">
