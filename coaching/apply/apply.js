@@ -180,11 +180,11 @@
     root.innerHTML =
       '<header class="hero hero-short hero-dark">' +
         '<p class="eyebrow">Application received</p>' +
-        '<h1>You\'re on the list, <span class="gold">' + esc(v.first_name) + '.</span></h1>' +
-        '<p class="lede">Group coaching opens soon. You\'re on the waitlist, so dates, format and seats come to you first.</p>' +
+        '<h1>Thank you, <span class="gold">' + esc(v.first_name) + '.</span></h1>' +
+        '<p class="lede">Group coaching is Business Manifesting for Founders: 12 weeks of live coaching with Rola, starting February 8.</p>' +
       '</header>' +
       '<section class="apply-wrap apply-center">' +
-        '<a class="btn" href="/coaching/group/?utm_source=apply-group">See group coaching</a>' +
+        '<a class="btn" href="/founders/?utm_source=apply-group">See the group program</a>' +
         '<p class="apply-alt">Want to start before then? Join <a class="link" href="/live/?utm_source=apply-group">Group Manifesting Live</a>, free every month.</p>' +
       '</section>';
     window.scrollTo(0, 0);
