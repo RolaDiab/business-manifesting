@@ -75,9 +75,10 @@
     v = v || {};
     root.innerHTML =
       '<header class="hero hero-short hero-dark">' +
-        '<p class="eyebrow">Apply for coaching</p>' +
+        '<p class="eyebrow">Apply for 1:1 coaching</p>' +
         '<h1>Let\'s clear the path to <span class="gold">your biggest wins.</span></h1>' +
-        '<p class="lede">1:1 or group coaching.<br>A few questions first, and if it\'s a fit, you\'ll book a 45-minute Discovery Call right away.</p>' +
+        '<p class="lede">Private 1:1 coaching with Rola.<br>A few questions first, and if it\'s a fit, you\'ll book a 45-minute Discovery Call right away.</p>' +
+        '<p class="meta">Looking for group coaching? <a class="link link-light" href="/founders/?utm_source=apply-top">See Business Manifesting for Founders</a></p>' +
       '</header>' +
       '<section class="apply-wrap"><form id="app-form" class="apply-form" novalidate>' +
         '<fieldset><legend>Which coaching are you interested in?</legend>' + radios("type", TYPE, v.type) + '</fieldset>' +
