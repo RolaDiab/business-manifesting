@@ -282,10 +282,11 @@
           <option value="Not sure">Not sure yet</option>
         </select>
       </label>
-      <label>Where is your business today?
+      <label>Where is your business or project today?
         <select name="stage">
           <option value="">Choose one</option>
           <option>I have an idea and haven't launched yet</option>
+          <option>I'm working on a project, not a business yet</option>
           <option>I've launched in the last year</option>
           <option>I've been in business 1 to 3 years</option>
           <option>I've been in business more than 3 years</option>
@@ -372,7 +373,7 @@
       if (!v.last_name) { err.textContent = "Please add your last name."; return; }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) { err.textContent = "Please add a valid email."; return; }
       if (!v.tier) { err.textContent = "Please choose Founders Group or Founders VIP."; return; }
-      if (!v.stage) { err.textContent = "Please choose where your business is today."; return; }
+      if (!v.stage) { err.textContent = "Please choose where your business or project is today."; return; }
       if (!v.building) { err.textContent = "Please tell us a little about what you're building."; return; }
       if (!form.consent.checked) { err.textContent = "Please tick the box so Rola can contact you."; return; }
       var btn = form.querySelector("button");
